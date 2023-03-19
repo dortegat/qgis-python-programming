@@ -1,0 +1,58 @@
+Introducción
+===========================
+
+En este sitio encontrarás documentación en idioma español especifica para el desarrollo de
+complementos en QGIS en lenguaje Python, complementaria a los recursos ofrecidos
+en el `sitio oficial del proyecto QGIS <https://www.qgis.org/en/docs/index.html>`_.
+Esta documentación ha sido construida con la herramienta `Sphinx <https://www.sphinx-doc.org/en/master>`_
+escrita por Georg Brandl bajo licencia BSD, utilizando el tema provisto por `Read the Docs <https://readthedocs.org/>`_.
+
+.. note::       Si lo prefieres puedes descargar esta documentación en formato :download:`pdf <common_docs/CursoPyQGIS_v3_202011_TrainingManual_CEDEX_testing.pdf>`.
+
+A continuación, se aportan unas indicaciones sobre la notación empleada en este documento:
+
++ Se utiliza *tipografía cursiva* en palabras y acrónimos en inglés generalmente
+  provenientes del mundo geomático: *plugin*.
++ Los enlaces Web a recursos en línea consultados aparecen en color azul
+  con su correspondiente hiperenlace: `Grupo de usuarios de QGIS España <http://qgis.es/>`_.
++ Datos y código fuente de los contenidos se encuentran alojados
+  en el siguiente repositorio de `GitHub <https://github.com/dortegat/qgis-python-programming>`_.
++ El código fuente de scripts y ficheros de configuración se tipografían con esta ``fuente``,
+  resaltando en amarillo los bloques de código referidos a los conceptos que se están
+  describiendo. Por ejemplo:
+
+    .. code-block:: python
+        :emphasize-lines: 3
+        :linenos:
+
+        for letra in "PyQGIS":
+            if letra == "Q":
+                continue
+            print("Letra actual: ", letra)
+        print("Adios")
+
++ Para enfatizar ciertos aspectos de la documentación se aportan notas, consejos,
+  conceptos importantes y mensajes de error. Por ejemplo:
+
+        .. tip::    El tipo de licencia de QGIS permite inspeccionar el
+                        código fuente de los complementos, constituyéndose como un recurso imprescindible
+                        y recomendado para el aprendizaje de estas herramientas:
+                        *“La mejor escuela es instalar y leer el código de plugins”*.
+
+        .. note::   Nos referiremos a *argumentos* y *parámetros* indistintamente en este tutorial.
+
+        .. important:: El índice del primer elemento de una lista es ``0`` y no ``1``.
+
+        .. error::  Si se introduce como denominador el valor cero, ``divide(2,0)``, obtendremos
+                    el siguiente resultado:
+
+                    .. code-block::
+
+                        Denominador cero!!!
+                        Ejecución claúsula finally
+
+
+
+
+
+
