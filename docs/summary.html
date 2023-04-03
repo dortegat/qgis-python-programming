@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Introducción &mdash; documentación de QGIS Python Programming Recipes - 202304.0</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="2. Documentación de referencia" href="documentation/index.html" />
+    <link rel="prev" title="Welcome to QGIS Python Programming Recipes’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> QGIS Python Programming Recipes
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                testing
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/index.html">2. Documentación de referencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/index.html">3. Apuntes lenguaje de programación Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins_intro/index.html">4. Extensión de la funcionalidad de QGIS mediante plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis/index.html">5. Descripción de las APIs de QGIS: API C++ y API Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pycharm/index.html">6. Configuración de QGIS y PyCharm para el desarrollo de plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins_dev/index.html">7. Desarrollo de complementos en QGIS</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">QGIS Python Programming Recipes</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>Introducción</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/summary.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduccion">
+<h1><span class="section-number">1. </span>Introducción<a class="headerlink" href="#introduccion" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>En este sitio encontrarás documentación en idioma español especifica para el desarrollo de
+complementos en QGIS en lenguaje Python, complementaria a los recursos ofrecidos
+en el <a class="reference external" href="https://www.qgis.org/en/docs/index.html">sitio oficial del proyecto QGIS</a>.
+Esta documentación ha sido construida con la herramienta <a class="reference external" href="https://www.sphinx-doc.org/en/master">Sphinx</a>
+escrita por Georg Brandl bajo licencia BSD, utilizando el tema provisto por <a class="reference external" href="https://readthedocs.org/">Read the Docs</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si lo prefieres puedes descargar esta documentación en formato <a class="reference download internal" download="" href="_downloads/c7bf9a91abac9d2e87d993ef21fc35c2/CursoPyQGIS_202304_04_ApuntesPython_testing.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>.</p>
+</div>
+<p>A continuación, se aportan unas indicaciones sobre la notación empleada en este documento:</p>
+<ul>
+<li><p>Se amplian los contenidos de las secciones más importantes con <a class="sphinx-bs badge badge-danger text-white reference external" href="https://www.youtube.com/watch?v=vlJoK9n73qs"><span>videotutoriales</span></a></p></li>
+<li><p>Los conceptos complementarios se agrupan en pestañas para facilitar su consulta:</p>
+<blockquote>
+<div><div class="tabbed-set docutils">
+<input checked="checked" id="f0fab249-81bc-4970-8823-3e936522ba3b" name="8f93591a-09ee-4e5f-ba32-98e2551f958f" type="radio">
+</input><label class="tabbed-label" for="f0fab249-81bc-4970-8823-3e936522ba3b">
+continue</label><div class="tabbed-content docutils">
+<p><code class="docutils literal notranslate"><span class="pre">continue</span></code> regresa al comienzo del bucle, ignorando todas las sentencias
+que quedan en la iteración actual del bucle e inicia la siguiente
+iteración.</p>
+</div>
+<input id="610196d7-b6e7-41cb-98f3-629dd640130d" name="8f93591a-09ee-4e5f-ba32-98e2551f958f" type="radio">
+</input><label class="tabbed-label" for="610196d7-b6e7-41cb-98f3-629dd640130d">
+break</label><div class="tabbed-content docutils">
+<p><code class="docutils literal notranslate"><span class="pre">break</span></code> termina el bucle actual y continua con la ejecución de la
+siguiente instrucción.</p>
+</div>
+<input id="3fc305d5-e729-4c75-afd6-f77cb7b0b0cb" name="8f93591a-09ee-4e5f-ba32-98e2551f958f" type="radio">
+</input><label class="tabbed-label" for="3fc305d5-e729-4c75-afd6-f77cb7b0b0cb">
+pass</label><div class="tabbed-content docutils">
+<p><code class="docutils literal notranslate"><span class="pre">pass</span></code> tal como su nombre lo indica es una operación nula, o sea que no
+pasa nada cuando se ejecuta.</p>
+</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Se utiliza <em>tipografía cursiva</em> en palabras y acrónimos en inglés generalmente
+provenientes del mundo geomático: <em>plugin</em>.</p></li>
+<li><p>Los enlaces Web a recursos en línea consultados aparecen en color azul
+con su correspondiente hiperenlace: <a class="reference external" href="http://qgis.es/">Grupo de usuarios de QGIS España</a>.</p></li>
+<li><p>Datos y código fuente de los contenidos se encuentran alojados
+en el siguiente repositorio de <a class="reference external" href="https://github.com/dortegat/qgis-python-programming">GitHub</a>.</p></li>
+<li><p>El código fuente de scripts y ficheros de configuración se tipografían con esta <code class="docutils literal notranslate"><span class="pre">fuente</span></code>,
+resaltando en amarillo los bloques de código referidos a los conceptos que se están
+describiendo. Por ejemplo:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">letra</span> <span class="ow">in</span> <span class="s2">&quot;PyQGIS&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">letra</span> <span class="o">==</span> <span class="s2">&quot;Q&quot;</span><span class="p">:</span>
+<span class="hll">        <span class="k">continue</span>
+</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Letra actual: &quot;</span><span class="p">,</span> <span class="n">letra</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adios&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</li>
+<li><p>Para enfatizar ciertos aspectos de la documentación se aportan notas, consejos,
+conceptos importantes y mensajes de error. Por ejemplo:</p>
+<blockquote>
+<div><div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>El tipo de licencia de QGIS permite inspeccionar el
+código fuente de los complementos, constituyéndose como un recurso imprescindible
+y recomendado para el aprendizaje de estas herramientas:
+<em>“La mejor escuela es instalar y leer el código de plugins”</em>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Nos referiremos a <em>argumentos</em> y <em>parámetros</em> indistintamente en este tutorial.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>El índice del primer elemento de una lista es <code class="docutils literal notranslate"><span class="pre">0</span></code> y no <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+</div>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p>Si se introduce como denominador el valor cero, <code class="docutils literal notranslate"><span class="pre">divide(2,0)</span></code>, obtendremos
+el siguiente resultado:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Denominador cero!!!
+Ejecución claúsula finally
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="documentation/index.html" class="btn btn-neutral float-right" title="2. Documentación de referencia" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to QGIS Python Programming Recipes’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright 2019-now. Damián Ortega Terol. Última actualización 03/04/2023, 17:30
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

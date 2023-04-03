@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to QGIS Python Programming Recipes’s documentation! &mdash; documentación de QGIS Python Programming Recipes - 202304.0</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="1. Introducción" href="summary.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> QGIS Python Programming Recipes
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                testing
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/index.html">2. Documentación de referencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/index.html">3. Apuntes lenguaje de programación Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins_intro/index.html">4. Extensión de la funcionalidad de QGIS mediante plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apis/index.html">5. Descripción de las APIs de QGIS: API C++ y API Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pycharm/index.html">6. Configuración de QGIS y PyCharm para el desarrollo de plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins_dev/index.html">7. Desarrollo de complementos en QGIS</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">QGIS Python Programming Recipes</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to QGIS Python Programming Recipes’s documentation!</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-qgis-python-programming-recipes-s-documentation">
+<h1>Welcome to QGIS Python Programming Recipes’s documentation!<a class="headerlink" href="#welcome-to-qgis-python-programming-recipes-s-documentation" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/index.html">2. Documentación de referencia</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation/documentacion.html">2.1. Documentación oficial QGIS de referencia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/documentacion.html#pyqgis-online-resources-webgrafia">2.2. <em>PyQGIS online resources</em> (Webgrafía)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="documentation/documentacion.html#interactuar-con-otros-usuarios">2.2.1. Interactuar con otros usuarios</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="documentation/documentacion.html#resolucion-de-dudas">2.2.1.1. Resolución de dudas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="documentation/documentacion.html#reporte-de-bugs">2.2.1.2. Reporte de bugs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/documentacion.html#blogs-y-foros">2.2.2. Blogs y foros</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="documentation/documentacion.html#en-otros-idiomas">2.2.2.1. En otros idiomas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="documentation/documentacion.html#en-castellano">2.2.2.2. En castellano</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="documentation/documentacion.html#otros-recursos-interesantes">2.2.3. Otros recursos interesantes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation/documentacion.html#libros-de-referencia">2.3. Libros de referencia</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python/index.html">3. Apuntes lenguaje de programación Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python/python.html">3.1. Parte I: Introduccion a Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/python.html#uso-de-python-en-gis">3.1.1. Uso de Python en GIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/python.html#recursos-para-el-aprendizaje-del-lenguaje-de-programacion-python">3.1.2. Recursos para el aprendizaje del lenguaje de programación Python</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#recursos-en-linea-en-castellano">3.1.2.1. Recursos en línea en castellano</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#recursos-en-linea-en-otros-idiomas">3.1.2.2. Recursos en línea en otros idiomas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python/python.html#caracteristicas-principales-de-python">3.1.3. Características principales de Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/python.html#variables">3.1.4. Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#definicion-de-variables">3.1.4.1. Definición de variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#definicion-de-constantes">3.1.4.2. Definición de constantes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#tipos-basicos-de-variables">3.1.4.3. Tipos básicos de variables</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="python/python.html#numeros">3.1.4.3.1. Números</a></li>
+<li class="toctree-l5"><a class="reference internal" href="python/python.html#cadenas-de-caracteres">3.1.4.3.2. Cadenas de caracteres</a></li>
+<li class="toctree-l5"><a class="reference internal" href="python/python.html#booleanos">3.1.4.3.3. Booleanos</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#eliminacion-de-una-variable">3.1.4.4. Eliminación de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#reglas-de-nomenclatura-de-variables">3.1.4.5. Reglas de nomenclatura de variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#asignacion-multiple">3.1.4.6. Asignación multiple</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#asignaciones-aumentadas">3.1.4.7. Asignaciones aumentadas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#definicion-de-comentarios">3.1.4.8. Definición de comentarios</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python/python.html#estructuras-o-colecciones-de-datos">3.1.5. Estructuras o colecciones de datos</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#listas">3.1.5.1. Listas</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="python/python.html#metodos-del-objeto-lista">3.1.5.1.1. Métodos del objeto lista</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#tuplas">3.1.5.2. Tuplas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#diccionarios">3.1.5.3. Diccionarios</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="python/python.html#metodos-del-objeto-diccionario">3.1.5.3.1. Métodos del objeto diccionario</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python/python.html#control-de-flujo">3.1.6. Control de flujo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#sentencias-condicionales">3.1.6.1. Sentencias condicionales</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="python/python.html#estructura-condicional-simple-if">3.1.6.1.1. Estructura condicional simple <code class="docutils literal notranslate"><span class="pre">if</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="python/python.html#estructura-condicional-doble-if-else">3.1.6.1.2. Estructura condicional doble <code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="python/python.html#estructura-condicional-multiple-if-elif-elif-else">3.1.6.1.3. Estructura condicional múltiple <code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">elif</span></code> … <code class="docutils literal notranslate"><span class="pre">elif</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#bucles-o-estructuras-repetitivas-o-iterativas">3.1.6.2. Bucles o estructuras repetitivas o iterativas</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="python/python.html#bucle-indefinido-while">3.1.6.2.1. Bucle indefinido: <code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="python/python.html#bucle-definido-for-in">3.1.6.2.2. Bucle definido: <code class="docutils literal notranslate"><span class="pre">for</span></code> .. <code class="docutils literal notranslate"><span class="pre">in</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="python/python.html#control-de-bucles-sentencias-break-continue-pass">3.1.6.2.3. Control de bucles: sentencias <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code>, <code class="docutils literal notranslate"><span class="pre">pass</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python/python.html#funciones-definidas-por-el-usuario">3.1.7. Funciones definidas por el usuario</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#definicion-de-funciones-con-un-solo-argumento">3.1.7.1. Definición de funciones con un solo argumento</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#definicion-y-uso-de-funciones-con-varios-argumentos">3.1.7.2. Definición y uso de funciones con varios argumentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#definicion-y-uso-de-funciones-sin-argumentos">3.1.7.3. Definición y uso de funciones sin argumentos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#definicion-de-funciones-con-devolucion-de-valores">3.1.7.4. Definición de funciones con devolución de valores</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#funciones-con-argumentos-por-defecto">3.1.7.5. Funciones con argumentos por defecto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#funciones-con-argumentos-de-longitud-variable">3.1.7.6. Funciones con argumentos de longitud variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#paso-de-variables-por-referencia-o-por-valor">3.1.7.7. Paso de variables por referencia o por valor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#ambito-de-las-variables-variables-locales-y-globales">3.1.7.8. Ámbito de las variables: variables locales y globales</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python/python.html#programacion-orientada-a-objetos-en-python">3.1.8. Programación orientada a objetos en Python</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#paradigma-de-poo">3.1.8.1. Paradigma de POO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#conceptos-basicos-de-la-poo">3.1.8.2. Conceptos básicos de la POO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#implementacion-de-clases-en-python">3.1.8.3. Implementación de clases en Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#caracteristicas-de-la-poo">3.1.8.4. Características de la POO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#ventajas-de-la-poo">3.1.8.5. Ventajas de la POO</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python/python.html#excepciones">3.1.9. Excepciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/python.html#modulos-y-paquetes">3.1.10. Módulos y paquetes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#modulos">3.1.10.1. Módulos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#paquetes">3.1.10.2. Paquetes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python/python.html#escritura-y-lectura-de-ficheros-de-texto">3.1.11. Escritura y lectura de ficheros de texto</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#formateo-de-la-salida">3.1.11.1. Formateo de la salida</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#manejo-de-ficheros-de-texto">3.1.11.2. Manejo de ficheros de texto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#escritura-de-ficheros">3.1.11.3. Escritura de ficheros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#lectura-de-ficheros">3.1.11.4. Lectura de ficheros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/python.html#mover-el-puntero-de-lectura-escritura">3.1.11.5. Mover el puntero de lectura/escritura</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins_intro/index.html">4. Extensión de la funcionalidad de QGIS mediante plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugins_intro/plugins_intro.html">4.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins_intro/plugins_intro.html#complementos-del-nucleo-de-qgis">4.2. Complementos del núcleo de QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins_intro/plugins_intro.html#complementos-externos-a-qgis">4.3. Complementos externos a QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins_intro/plugins_intro.html#inicializacion-de-complementos">4.4. Inicialización de complementos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins_intro/plugins_intro.html#complementos-recomendados">4.5. Complementos recomendados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins_intro/plugins_intro.html#ideas-finales">4.6. Ideas finales</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apis/index.html">5. Descripción de las APIs de QGIS: API C++ y API Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apis/apis.html">5.1. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apis/apis.html#la-api-de-qgis-explicada-a-traves-de-ejemplos">5.2. La API de QGIS explicada a través de ejemplos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apis/apis.html#consulta-de-la-api-qgis-en-la-consola-de-python-de-qgis">5.3. Consulta de la API QGIS en la consola de Python de QGIS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pycharm/index.html">6. Configuración de QGIS y PyCharm para el desarrollo de plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pycharm/pycharm.html">6.1. Instalación de QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pycharm/pycharm.html#instalacion-de-pycharm">6.2. Instalación de PyCharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pycharm/pycharm.html#configuracion-del-entorno-de-desarrollo-de-qgis">6.3. Configuración del entorno de desarrollo de QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pycharm/pycharm.html#primeros-pasos-con-pycharm">6.4. Primeros pasos con PyCharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pycharm/pycharm.html#estilo-de-codificacion-propuesto">6.5. Estilo de codificación propuesto</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins_dev/index.html">7. Desarrollo de complementos en QGIS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugins_dev/plugins_dev.html">7.1. Creación de un complemento básico de QGIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins_dev/plugins_dev.html#diseno-y-creacion-de-la-interfaz-de-usuario">7.2. Diseño y creación de la Interfaz de Usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins_dev/plugins_dev.html#implementacion-de-la-funcionalidad-del-complemento">7.3. Implementación de la funcionalidad del complemento</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Índice</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Página de Búsqueda</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="summary.html" class="btn btn-neutral float-right" title="1. Introducción" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright 2019-now. Damián Ortega Terol. Última actualización 03/04/2023, 17:30
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
