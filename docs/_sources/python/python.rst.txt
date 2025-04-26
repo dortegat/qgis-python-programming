@@ -1,0 +1,3115 @@
+
+
+
+
+Parte I: Introduccion a Python
+===============================================
+Se amplian los contenidos de esta sección en el siguiente :link-badge:`https://www.youtube.com/watch?v=UaSATSzvAlA,"videotutorial",cls=badge-danger text-white`
+
+Existen numerosos recursos disponibles para el aprendizaje del lenguaje de programación Python.
+En esta sección se facilita una introducción de conceptos y descripciones
+:ref:`enfocados a la extensión de funcionalidades de QGIS haciendo uso de este lenguaje de programación<recursos disponibles>`.
+
+Uso de Python en GIS
+--------------------
+.. SEE Otras referencias `The Use of Python in GIS <https://www.gislounge.com/use-python-gis>`_:
+.. y con * `Python and GIS Resources <https://www.gislounge.com/python-and-gis-resources/>`_:
+
+El lenguaje Python se ha convertido en el estándar *de facto* para la
+programación en investigaciones científicas.
+Lo anterior también se cumple en el contexto de las aplicaciones
+geomáticas, tanto en el mundo de los Sistemas de Información Geográfica
+(SIG) de código abierto como de software propietario, donde Python se
+constituye como el lenguaje de *scripting* estándar *de facto*: la
+mayoría de los principales software SIG proporcionan librerías de Python
+para la integración, análisis y automatización de tareas de
+geoprocesamiento, incluidos QGIS y PostGIS (Kuiper et al. 2014).
+
+.. note::   El
+            `índice TIOBE <https://www.tiobe.com/tiobe-index/>`_
+            que establece un ranking mensual clasificando los lenguajes de programación más populares del momento,
+            sitúa a Python en mes de abril de 2025 en primera posición de los lenguajes más populares y
+            demandados en el mercado laboral.
+
+La principal ventaja de Python en relación con otros lenguajes de
+programación de nivel superior, como C++, es que Python presenta una
+mayor pendiente en su curva de aprendizaje y una sintaxis simple y
+clara, favoreciendo el código legible asimilable al lenguaje natural. Al
+venir integrado en las herramientas que lo contemplan como lenguaje de
+*scripting*, el despliegue del entorno de desarrollo es sencillo.
+Además, la importante comunidad de usuarios se traduce en la disponibilidad
+de numerosas librerías y aplicaciones, cuya integración no sólo permite
+incrementar el rendimiento en la implementación del desarrollo, al
+evitar arrancar de cero, sino que también proporciona estabilidad, al
+utilizar herramientas que han sido ampliamente probadas en diferentes
+entornos y contextos.
+
+Sin embargo, Python presenta inconvenientes frente a C++, principalmente
+que es un lenguaje interpretado o de *script*, que se ejecuta utilizando
+un programa intermedio llamado intérprete, traduciendo el código
+instrucción a instrucción a medida que lo va ejecutando (*runtime*), de forma
+que la compilación no sucede antes del tiempo de ejecución. Esto se traduce en
+(i) una mayor dificultad en el proceso de depuración de errores al no
+informar fácilmente sobre éstos hasta que el código se ejecuta y, (ii)
+una menor velocidad de ejecución, lo que puede ser crítico en el
+desarrollo de aplicaciones donde el requisito de rendimiento sea
+necesario, como es el caso de muchas aplicaciones geomáticas, motivado
+por el gran volumen de información a tratar.
+
+.. tip::    Para aprovechar las ventajas de ambos lenguajes y minimizar sus
+            problemas, se recomienda utilizar la combinación de ambos lenguajes de
+            programación, embebiendo herramientas escritas en lenguaje C++ para ser
+            utilizadas en aplicaciones implementadas en código Python. Esta técnica
+            presenta la ventaja de se puede mezclar código compilado en C++ y código
+            de Python que se compila en tiempo de ejecución.
+
+.. _recursos disponibles:
+
+¿Dónde usar Python en QGIS?
+---------------------------
+Para el desarrollo de este curso se va a utilizar el lenguaje Python desde el editor de *scripts* de
+la **Consola de Python** de QGIS (accesible a través del menú
+:badge:`Complementos,badge-success badge-pill` ⇨ :badge:`Consola de Python,badge-success badge-pill`
+o la combinación de teclas :badge:`Ctrl,badge-dark` + :badge:`Alt,badge-dark` + :badge:`P,badge-dark`) y
+en el **Desarrollo de complementos** o *plugins*.
+
+Además, QGIS permite inyectar código Python en otras partes del programa:
+
+*  **Macros de Proyecto** accesibles a través del menú :badge:`Proyecto,badge-success badge-pill` ⇨ :badge:`Propiedades,badge-success badge-pill`
+   en el grupo de opciones :badge:`Macro,badge-success badge-pill`
+*  **Acciones** accesibles desde el menú :badge:`Propiedades de la capa,badge-success badge-pill` ⇨ :badge:`Acciones,badge-success badge-pill`
+*  **Expresiones personalizadas** en el :badge:`Diálogo de expresiones,badge-success badge-pill` ⇨ :badge:`Editor de funciones,badge-success badge-pill`
+*  **Algoritmos de geoprocesamiento**: accesible a través de la :badge:`Caja de herramientas de Procesos,badge-success badge-pill` ⇨ :badge:`Scripts,badge-success badge-pill`
+*  **Scripts standalone** (sin la GUI de QGIS)
+
+Recursos para el aprendizaje del lenguaje de programación Python
+----------------------------------------------------------------
+La redacción de estos apuntes sobre Python 3 está basada principalmente en los recursos disponibles del
+tutorial "Python para todos" [#]_, mejorados y ampliados con otros recursos consultados de la
+bibliografía recomendada ([#]_, [#]_, [#]_, [#]_) y otros disponibles en línea,
+adaptando sus contenidos al objeto de este tutorial.
+
+  .. [#]    **R. González Duque**, *Python Para Todos* (**2008**)
+  .. [#]    **Óscar Ramírez Jiménez**, *Python a fondo. Domine el lenguaje del presente y futuro* (**2021**)
+  .. [#]    **G. Sherman**, *The PyQGIS Programmer’s Guide: Extending QGIS 3 with Python 3* (Locate Press, **2018**).
+  .. [#]    **P. Gerrard**, *Lean Python: Learn Just Enough Python to Build Useful Tools* (Springer Science+Business Media, New York, NY, **2016**)
+  .. [#]    **Mohit and B. N. Das**, *Learn Python in 7 Days: Get up-and-Running with Python* **2017**)
+
+Para ampliar conocimientos sobre este lenguaje se recomiendan los siguientes recursos disponibles *en línea*:
+
+.. TODOC: más recursos aquí
+.. Listado de recursos en inglés   https://docs.python-guide.org/intro/learning/
+.. a section from The Hitchhiker’s Guide to Python (a very good and complete list of resources)  https://docs.python-guide.org/
+
+Recursos en línea en castellano
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* `Tutorial oficial <https://docs.python.org/es/3.12/tutorial/>`_ de Python versión 3.12 (versión instalada en la versión 3.40 de QGIS)
+  en castellano dentro de la `documentación oficial <https://docs.python.org/es/3.12/>`_ de la
+  `Python Software Foundation <https://www.python.org/>`_ (PSF).
+* `Introducción a la programación en Python 3 <https://issuu.com/universitatjaumei/docs/sapientia_93>`_:
+  Completo manual de la Universitat Jaume I de Castellón.
+* `Solución de problemas con algoritmos y estructuras de datos usando Python <https://runestone.academy/ns/books/published/pythoned/index.html>`_:
+  Traducción de Mauricio Orozco-Alzate del libro de Brad Miller y David Ranum.
+* `Python para principiantes <https://ia802809.us.archive.org/17/items/PythonPrincipiantesBahit/Python%20para%20Principiantes%20-%20Bahit.pdf>`_:
+  Manual en castellano escrito por Eugenia Bahit
+* `Python para impacientes <https://python-para-impacientes.blogspot.com/p/indice.html>`_:
+  Recomendado para programadores con conocimientos.
+* `Programación en Python - Nivel básico Covantec <http://entrenamiento-python-basico.readthedocs.io/es/latest/>`_:
+  Materiales del curso de Programación en Python - Nivel básico realizado por la empresa `Covantec R.L <https://github.com/Covantec>`_.
+
+Recursos en línea en otros idiomas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* `A byte of Python <https://python.swaroopch.com/>`_:
+  Se trata de un libro gratuito sobre programación utilizando el lenguaje Python que sirve como tutorial o
+  guía del lenguaje Python para una audiencia principiante. Se puede descargar una versión en formato pdf o epub desde
+  su `página de GitHub <https://github.com/swaroopch/byte-of-python/releases/tag/vde52c915f03bef21f3cd9f6b3f0dd1b4e2810e6f>`_.
+* `Python 101! <https://python101.pythonlibrary.org/index.html>`_:
+  La audiencia de este libro son principalmente personas que han programado en el pasado pero que quieren aprender Python.
+  Esta organizado en 5 partes que abarcan desde nivel principiante a nivel intermedio.
+* `Python Foundation for Spatial Analysis <https://courses.spatialthoughts.com/python-foundation.html>`_:
+  Curso de Ujaval Gandhi con una introducción suave a la programación de Python con un claro enfoque en los datos espaciales.
+* `Python Notes for Professionals book <http://goalkicker.com/PythonBook/>`_:
+  Completo libro con más de 800 páginas descargable en formato pdf.
+* `Dive Into Python 3 <https://diveintopython3.net/>`_:
+  Tutorial de Mark Pilgrim para programadores con experiencia.
+* `Python for Everybody <https://books.trinket.io/pfe/>`_:
+  Introducción a los conceptos básicos de Python 3 con énfasis en el uso práctico por Charles Severance (Dr. Chuck).
+* `PyVideo.org <https://pyvideo.org/>`_:
+  Índice de recursos de libre disposición para aprender el lenguaje de programación Python.
+
+Características principales de Python
+-------------------------------------
+
+Python es un lenguaje de programación muy poderoso y flexible, a la vez que sencillo y fácil de aprender.
+Fue creado por Guido van Rossum y su nombre está inspirado en la serie
+"*Monty Python's Flying Circus*". La primera versión fue lanzada en febrero de 1991.
+Está administrado por la `Python Software Foundation <https://www.python.org/psf/>`__, todas sus versiones
+son de `código abierto <https://docs.python.org/3/license.html>`__,
+se distribuye bajo la licencia denominada `Python Software Foundation License <https://docs.python.org/3/license.html>`__
+y está implementado en la mayoría de plataformas y sistemas operativos habituales.
+
+Se trata de un lenguaje de alto nivel, de propósito general, multiplataforma, multiparadigma, principalmente imperativo,
+orientado a objetos y funcional, de tipado dinámico y fuertemente tipado.
+Se extienden a continuación las definiciones de estas **características principales** a nivel de lenguaje de programación:
+
+.. TODO Noticias de prensa
+.. TODOC https://www.emprendedores.es/formacion-cursos-emprendedores-talleres/tokio-school-python-programacion-covid/
+.. https://computerhoy.com/noticias/tecnologia/microscopio-raspberry-pi-python-661923
+
+*   **Propósito general**:
+    Con Python se pueden crear todo tipo de programas: programación a nivel de sistema operativo;
+    aplicaciones con interfaz de usuario utilizando por ejemplo el *binding* de Qt para Python (PyQt);
+    aplicaciones Web e interacción con servicios Web; aplicaciones científicas;
+    gestión de contenido; *Big Data*, inteligencia artificial y *deep learning*.
+
+*   **Interpretado o de script**:
+    Se ejecuta utilizando un programa intermedio llamado intérprete, que traduce el código instrucción
+    por instrucción a medida que lo va ejecutando, en lugar de compilar el
+    código a código máquina que pueda comprender y ejecutar directamente
+    una computadora (lenguajes compilados). Esto proporciona ventajas como
+    la rapidez de desarrollo al no tener que compilar los programas cada vez que se modifica el código
+    e inconvenientes como una menor velocidad de ejecución. Esta característica permite que el código
+    no sea dependiente del hardware en el que se ejecuta, y ayuda a que el lenguaje sea 
+
+*   **Multiplataforma**,
+    aunque originalmente se desarrolló para Unix.
+    En Python, la primera vez que se ejecuta un *script* se compila, traduciendo
+    el código fuente a pseudocódigo máquina intermedio llamado *bytecode*,
+    generando archivos ``.pyc``, que son los que se ejecutarán en sucesivas
+    ocasiones.
+
+*   **Con tipado dinámico**:
+    No es necesario declarar el tipo de dato que va a contener una determinada
+    variable, sino que su tipo se determinará en tiempo de ejecución según
+    el tipo del valor al que se asigne, y el tipo de esta variable puede
+    cambiar si se le asigna un valor de otro tipo.
+
+*   **Organizado y extensible**:
+    Dispone de múltiples formas de organizar código tales como funciones,
+    clases, módulos y paquetes.
+    Si hay áreas que son lentas se pueden reemplazar por plugins en C o C++,
+    siguiendo la API para extender Python en una aplicación.
+
+*   **Fuertemente tipado**:
+    No se permite tratar a una variable como si fuera de un tipo
+    distinto al que tiene, es necesario convertir de forma explícita
+    dicha variable al nuevo tipo previamente.
+
+*   **Orientado a objetos**:
+    La orientación a objetos es un paradigma de programación en el que los
+    conceptos del mundo real relevantes para nuestro problema se trasladan
+    a clases y objetos en nuestro programa. Esto facilita el desarrollo de
+    programas con componentes reutilizables. En el capítulo de :ref:`programación
+    orientada a objetos en Python<poo>` se abordan los conceptos más importantes
+    de este paradigma de programación.
+
+Respecto a las **herramientas básicas** para la implementación del código fuente,
+existen dos formas de ejecutar código Python: (i) se pueden escribir líneas
+de código en el intérprete y obtener una respuesta para cada línea (sesión *interactiva*)
+o bien (ii) se puede escribir el código de un programa en un archivo de texto
+(extensión ``.py``) y ejecutarlo. En uno y otro caso, se utilizarán en este tutorial
+la consola de Python de QGIS y el IDE PyCharm versión *Community Edition*.
+
+.. important::  En Python hay dos modos de ejecutar un programa:
+
+                *   **Modo interactivo**: mediante una sesión interactiva utilizando el *interactive interpreter prompt*.
+                    En este modo, cada comando que se escribe se interpreta y ejecuta inmediatamente,
+                    y se ven los resultados cada vez que se presiona `Enter`.
+
+                *   **Modo de script**: en este modo, se coloca un conjunto de instrucciones de Python en un archivo de
+                    texto con una extensión **.py**.
+
+.. dropdown:: Pastebin y depuradores visuales en línea
+    :container: + shadow
+    :title: bg-primary text-white text-center font-italic
+    :body: bg-light text-left font-italic
+
+    Además de los IDEs existen otras opciones para implementar código desde un navegador Web.
+
+    *   `repl.it <https://repl.it>`_ es una plataforma ideal para programar y no es necesario
+        instalar ni pagar nada para utilizarla.
+
+    *   En esta misma línea existen aplicaciones Web
+        que permiten a los usuarios subir pequeños textos, generalmente ejemplos de código fuente,
+        para que estén visibles al público en general. `Linkode <https://linkode.org>`_
+        es un ejemplo de *pastebin*.
+
+    *   Por su parte, `Python Tutor <https://pythontutor.com>`_ contiene un depurador visual
+        paso a paso y un tutor de IA que facilita la comprensión y depuración de código fuente.
+        Se trata de una herramienta de visualización de programas muy utilizada para la educación
+        en informática.
+
+
+Por otro lado, este leguaje ofrece **ventajas** como su sintaxis simple, clara y
+sencilla, el gestor de memoria, la gran cantidad de
+librerías disponibles (más de 100.000 paquetes de librerías han sido compartidas por su comunidad de usuarios)
+y su potencia, entre otras, que hacen que desarrollar una aplicación en Python s
+ea sencillo, muy rápido y, lo que es más importante, divertido.
+
+La sintaxis de Python es tan sencilla y cercana al lenguaje natural que
+los programas elaborados en Python parecen pseudocódigo. Por este motivo
+se trata además de uno de los mejores lenguajes para aprender y entender la
+programación.
+
+Python no es adecuado sin embargo para la programación de bajo nivel o
+para aplicaciones en las que el rendimiento sea crítico.
+
+Otro aspecto característico de Python es el concepto de **indentación**,
+característica singular de este lenguaje. La sangría no solo hace que el
+código de Python sea legible, sino que también distingue cada bloque de
+código del otro. Es muy común utilizar una indentación de 4 espacios.
+
+Finalmente es necesario reseñar que la **versión** del intérprete de
+**Python** utilizada para documentar esta sección es la distribuida por
+el propio instalador de QGIS en la siguiente ruta: :file:`C:/Program Files/QGIS 3.40.5/bin`.
+
+Se puede consultar la versión de QGIS que se está utilizando desde su consola:
+
+.. code-block:: python
+    :emphasize-lines: 2
+    :linenos:
+
+    >>> import sys
+    >>> sys.version
+    '3.12.9 (main, Feb  7 2025, 14:34:44) [MSC v.1938 64 bit (AMD64)]'
+
+.. note::   Uno de los `cambios <http://qgis.org/api/api_break.html>`_ más importantes
+            del paso de versión de QGIS 2.x a 3.x es el paso de la versión de Python 2.x a 3.x.
+
+Variables
+---------
+Se amplian los contenidos de esta sección en el siguiente :link-badge:`https://www.youtube.com/watch?v=ChY5Id1S_-A,"videotutorial",cls=badge-danger text-white`
+
+Las variables son uno de los bloques de creación fundamentales de los programas
+escritos en Python. Las variables retienen los datos en la memoria.
+Tienen nombres y se puede hacer referencia a ellas por esos nombres.
+Las variables también tienen tipos, que especifican el tipo de datos que
+pueden almacenar (como una cadena y un entero) y se pueden usar en
+expresiones que usan operadores (como ``+`` y ``-``) para manipular los valores.
+
+Definición de variables
+~~~~~~~~~~~~~~~~~~~~~~~
+
+En Python se usa el símbolo ``=`` para **asignar** un valor a una varible:
+
+.. code-block::
+
+   <nombre> = <valor>
+
+.. important::  Los nombres de variables son sensibles a cambios en mayúsculas y
+                y minúsculas (*case-sensitive*). No es lo mismo ``Distancia`` que ``distancia``.
+
+
+.. error::  Python tiene variables locales y globales como la mayoría de los
+            lenguajes, pero no tiene declaraciones explícitas de variables. Las
+            variables aparecen al asignarles un valor y son automáticamente
+            destruidas cuando salimos de su ámbito.
+
+            .. code-block:: python
+                :emphasize-lines: 4
+                :linenos:
+
+                    >>> mi_variable
+                    Traceback (most recent call last):
+                      File "<stdin>", line 1, in <module>
+                    NameError: name 'mi_variable' is not defined
+
+Para poder comprobar el valor de una variable en un intérprete de Python
+escribiremos el nombre de la variable:
+
+.. code-block:: python
+
+   >>> mi_variable = 1
+   >>> mi_variable
+   1
+
+Definición de constantes
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Por el contrario, las **constantes** son un tipo particular de variable cuyo valor
+no se pueden alterar durante la ejecución de un programa.
+Se declaran usualmente en módulos a parte. Cada módulo es un archivo que
+se importa en el archivo principal.
+
+.. tip::    Por convención las constantes son escritas
+            en letras mayúsculas y separadas por guión bajo ``_``, en caso que sean varias palabras. Por ejemplo:
+
+            .. code-block:: python
+
+                PASSWORD_DB_SERVER = "123456"
+
+Tipos básicos de variables
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Los cuatro tipos de dato básicos  o primitivos de variables en Python son el número entero (``int``),
+el número de coma flotante (``float``), la cadena de caracteres (``str``) y el booleano (``bool``).
+Sin embargo, Python incorpora un quinto tipo de dato que estrictamente hablando se llama ``NoneType``
+y cuyo único valor posible es ``None`` (pronunciado llanamente «nan»).
+
+.. SEE https://recursospython.com/guias-y-manuales/el-tipo-de-dato-none/
+
+=========== =====================   ================================    =============
+**Tipo**     **Descripción**        **Rango**                            **Ejemplo**
+=========== =====================   ================================    =============
+``int``     Numérica entera         ??                                  2
+``float``   Numérica flotante       [-2\ :sup:`308`, 2\ :sup:`308`]     3.141592
+``str``     Cadena de caracteres    No aplica                           "PyQGIS" o 'PyQGIS'
+``bool``    Booleano                ``True`` / ``False``                ``True``
+``None``    Tipo especial
+=========== =====================   ================================    =============
+
+Por tanto, las siguientes definiciones de variables no son equivalentes:
+
+.. code-block:: python
+
+   >>> fecha = 2025
+   >>> fecha = 2025.0
+   >>> fecha = "2025"
+   >>> fecha = [16, "mayo", 2025]
+
+En el primer caso la variable ``fecha`` está almacenando un número entero,
+en el segundo ``fecha`` está almacenando un número decimal y en el
+tercero ``fecha`` está almacenando una cadena de cuatro letras. En el
+cuarto, ``fecha`` está almacenando una :ref:`lista<listas>` (un tipo de variable que puede
+contener varios elementos ordenados). Este ejemplo demuestra también que
+se puede volver a definir una variable, modificando su tipo
+automáticamente.
+
+Números
+^^^^^^^
+
+En Python se pueden representar números enteros, reales y complejos.
+
+Enteros
+'''''''
+
+En versiones anteriores se diferenciaba entre el tipo ``int`` (de *integer*, entero) y
+el tipo ``long``. Actualmente no existe esta distinción, ya que no hay un límite para
+el valor de los números enteros.
+
+
+Reales
+''''''
+
+.. TODO ver el dominio de los reales en Python 3
+
+En Python se expresan mediante el tipo ``float``. Para representar un número real
+en Python se escribe primero la parte entera, seguido de un punto ``.`` y por último
+la parte decimal.
+
+.. code-block:: python
+
+    >>> pi = 3.141592
+
+Operadores aritméticos
+''''''''''''''''''''''
+
+Los expresiones aritméticas comprenden operando y operadores:
+
++--------------------------------+-------+--------------+-------+----------+-------------+
+| **Descripción**                | **a** | **Operador** | **b** | **r**    | **type(r)** |
++================================+=======+==============+=======+==========+=============+
+| Suma                           | 2     | ``+``        | 3     | 5        | ``int``     |
++                                +-------+              +-------+----------+-------------+
+|                                | 2     |              | 3.0   | 5.0      | ``float``   |
++--------------------------------+-------+--------------+-------+----------+-------------+
+| Resta                          | 3     | ``-``        | 2     | 1        | ``int``     |
++                                +-------+              +-------+----------+-------------+
+|                                | 3.0   |              | 2.0   | 1.0      | ``float``   |
++--------------------------------+-------+--------------+-------+----------+-------------+
+| Multiplicación                 | 3     | ``*``        | 2     | 6        | ``int``     |
++                                +-------+              +-------+----------+-------------+
+|                                | 3     |              | 2.0   | 6.0      | ``float``   |
++--------------------------------+-------+--------------+-------+----------+-------------+
+| División de flotantes          | 3     | ``/``        | 2     | 1.5      | ``float``   |
++                                +-------+              +-------+----------+-------------+
+|                                | -6    |              | 2     | -3       | ``int``     |
++                                +-------+              +-------+----------+-------------+
+|                                | -6.0  |              | 2     | -3.0     | ``float``   |
++--------------------------------+-------+--------------+-------+----------+-------------+
+| División de enteros            | 9     | ``//``       | 4     | 2        | ``int``     |
++--------------------------------+-------+--------------+-------+----------+-------------+
+| Módulo (resto de una división) | 15    | ``%``        | 4     | 3        | ``int``     |
++--------------------------------+-------+--------------+-------+----------+-------------+
+| Exponente                      | 2     | ``**``       | 8     | 256      | ``int``     |
++                                +-------+              +-------+----------+-------------+
+|                                | -4    |              | 3     | -64      | ``int``     |
++                                +-------+              +-------+----------+-------------+
+|                                | 4     |              | -3    | 0.015625 | ``float``   |
++--------------------------------+-------+--------------+-------+----------+-------------+
+
+En los siguientes bloques de código se muestra el resultado de dos operaciones y la comprobación
+del tipo de variable mediante el uso de la palabra reservada ``type``:
+
+.. code-block:: python
+
+        >>> suma = 2 + 3
+        >>> suma, type(suma)
+        (5, <class 'int'>)
+
+.. code-block:: python
+
+        >>> suma = 2 + 3.0
+        >>> suma, type(suma)
+        (5.0, <class 'float'>)
+
+.. tip::    El estilo de codificación `PEP 8 (*Python Enhancement Proposal 8*) <https://peps.python.org/pep-0008/>`_
+            establece algunas convenciones sobre el uso de espacios en blanco
+            en el código Python. PEP 8 recomienda colocar un espacio alrededor
+            de operadores para mejorar la legibilidad.
+
+Para operaciones más complejas se puede importar al módulo ``math``.
+
+.. code-block:: python
+    :emphasize-lines: 1
+
+    >>> import math
+    >>> math.pi
+    3.141592653589793
+    >>> radio = 2
+    >>> longitud_circunferencia = 2 * math.pi * radio
+    >>> longitud_circunferencia
+    12.566370614359172
+
+Funciones de conversión entre números
+''''''''''''''''''''''''''''''''''''''
+Cuando mezclamos enteros, booleanos y flotantes, Python realiza automáticamente
+una conversión **implicita** de los valores al tipo de *mayor rango*.
+
+.. code-block:: python
+
+        >>> 10 + 3.14
+        13.14
+
+Existen además una serie de funciones de conversión **explícita** de tipos entre números ``int`` y ``float``:
+
+=====================   =====   ===========
+**Función**             **r**   **type(r)**
+=====================   =====   ===========
+>>> int(1.234)          1       ``int``
+>>> int(-1.234)         -1      ``int``
+>>> float(4)            4.0     ``float``
+>>> float('4.321')      4.321   ``float``
+=====================   =====   ===========
+
+Cadenas de caracteres o *strings*
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Las cadenas de texto son secuencias de caracteres que nos permiten almacenar
+información textual de forma muy cómida. Van encerradas entre comillas simples
+(``'cadena'``) o dobles (``"cadena"``). El siguiente ejemplo muestra la representación
+de una geometría en formato WKT (*Well Known Text*):
+
+.. code-block:: python
+
+   >>> geom_wkt = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
+
+Su comportamiento es análogo al de una :ref:`tupla<tuplas>` tal y como se verá más
+adelante, lo que significa que no se pueden modificar sus componentes una vez
+inicializados. Además, se puede acceder a cada carácter por su posición por su índice:
+
+.. code-block:: python
+    :emphasize-lines: 2
+
+    >>> geom_wkt = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
+    >>> geom_wkt[0]
+    'P'
+
+.. important::  Nótese que el índice del primer elemento de la cadena de texto es ``0`` y no ``1``.
+                y que existen tanto índices positivos como negativos para acceder a cada uno de sus
+                caracteres.
+
+.. tip::    Antes de continuar con el desarrollo de este apartado,
+            se aporta un breve introducción a las funciones de entrada y salida
+            estándar en Python. Los programas serían de muy poca utilidad
+            si no fueran capaces de interaccionar con el usuario; en Python
+            las instrucciones que permiten leer información de teclado y mostrar
+            información por pantalla son ``input`` y ``print``, respectivamente.
+
+            .. code-block:: python
+                :linenos:
+
+                >>> edad = int(input('Introduzca su edad: '))  # entrada de entero
+                >>> peso = float(input('Introduzca su peso: '))  # entrada de flotante
+                >>> nombre = input('Introduzca su nombre: ')  # entrada de cadena
+                >>> print(nombre, edad, 'años', peso, 'kg')  # muestra datos
+
+
+.. tip::    En Python, la función ``print``, que es una de más de 60 funciones integradas en el lenguaje,
+            genera texto en la pantalla. El argumento pasado a ``print`` es una cadena,
+            que es uno de los tipos de datos fundamentales en Python y que se
+            usa para almacenar y administrar el texto.
+            De manera predeterminada, ``print`` genera un carácter de nueva línea al final de la línea,
+            de modo que la posterior llama a ``print``, que se iniciará en la línea siguiente.
+
+
+Obtener un carácter
+'''''''''''''''''''
+Los *strings* están indexados y cada carácter tiene su propia posición.
+Para obtener un único carácter dentro de una cadena de texto es necesario
+especificar su **índice** entre corchetes ``[`` ... ``]``.
+
+======= ======= ======= ======= ======= ======= ======= ======= ======= =======
+``-10`` ``-9``  ``-8``  ``-7``  ``-6``  ``-5``  ``-4``  ``-3``  ``-2``  ``-1``
+C       u       r       s       o               Q       G       I       S
+``0``   ``1``   ``2``   ``3``   ``4``   ``5``   ``6``   ``7``   ``8``   ``9``
+======= ======= ======= ======= ======= ======= ======= ======= ======= =======
+
+Vemos algunos ejemplos de acceso a caracteres de una cadena de texto:
+
+.. code-block:: python
+    :emphasize-lines: 3, 5, 7, 9
+
+    nombre_curso = 'Curso QGIS'
+
+    >>> nombre_curso[0]
+    'C'
+    >>> nombre_curso[-1]
+    'S'
+    >>> nombre_curso[4]
+    'o'
+    >>> nombre_curso[-5]
+    ' '
+
+Caracteres especiales
+'''''''''''''''''''''
+
+Dentro de las comillas se pueden añadir caracteres especiales
+escapándolos con ``\``:
+
+==========      ===============================
+**Escape**      **Significado de la secuencia**
+==========      ===============================
+``\b``          Suprimir un carácter
+``\n``          Carácter de nueva línea
+``\t``          Carácter tabulación
+``\'``          ``'``
+``\"``          ``"``
+==========      ===============================
+
+Por ejemplo:
+
+.. code-block:: python
+
+    >>> print("Las cadenas son texto encerrado entre comillas simples (\')")
+    Las cadenas son texto encerrado entre comillas simples (')
+    >>> print("... y también entre comillas dobles (\")")
+    ... y también entre comillas dobles (")
+
+.. code-block:: python
+
+ >>> levantamiento = "Nº\tX\t\tY\t\tCOD\n1\t728762.67\t4328983.25\t\"bordillo\""
+ >>> print(levantamiento)
+ Nº      X               Y               COD
+ 1       728762.67       4328983.25      "bordillo"
+
+También es posible encerrar una cadena entre triples comillas (simples o
+dobles). De esta forma se podrá escribir el texto en varias líneas, y al
+imprimir la cadena, se respetarán los saltos de línea que introdujimos
+sin tener que recurrir al carácter ``\n``, así como las comillas sin tener
+que escaparlas.
+
+.. code-block:: python
+
+    >>> levantamiento = """Nº\tX\t\tY\t\tCOD
+    1\t728762.67\t4328983.25\t\"bordillo\"
+    2\t728785.42\t4328998.43\t\'acera.\b\'"""
+    >>> print(levantamiento)
+    Nº      X               Y               COD
+    1       728762.67       4328983.25      "bordillo"
+    2       728785.42       4328998.43      'acera'
+
+Métodos de objeto cadenas de texto
+''''''''''''''''''''''''''''''''''
+
+En este apartado se facilitan la sintaxis de algunos métodos del objeto cadena de texto,
+aportando para cada uno de ellos una descripción y un ejemplo de aplicación.
+
+.. code-block::
+
+    S.count(sub[, start [, end]])
+
+Devuelve el número de veces que se encuentra ``sub`` en la cadena.
+
+.. code-block:: python
+    :emphasize-lines: 2
+    :linenos:
+
+    >>> geom_wkt = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
+    >>> lados_poligono = geom_wkt.count(",")
+    >>> lados_poligono
+    4
+
+Los parámetros opcionales ``start`` y ``end`` definen una subcadena en la que buscar.
+
+.. code-block:: python
+    :emphasize-lines: 3, 6
+    :linenos:
+
+    >>> cadena_texto = "Esto es un cadena de 34 caracteres"
+    >>> subcadena = "ca"
+    >>> num_cadena_ca = cadena_texto.count(subcadena, 0, 33)
+    >>> num_cadena_ca
+    2
+    >>> num_cadena_ca = cadena_texto.count(subcadena, 0, 17)
+    >>> num_cadena_ca
+    1
+
+.. code-block::
+
+    S.find(sub[, start[, end]])
+
+Devuelve la posición en la que se encontró por primera vez ``sub`` en la cadena o ``-1`` si no se encontró.
+
+.. code-block:: python
+    :emphasize-lines: 2, 4
+    :linenos:
+
+    >>> cadena_texto = "Curso de programación en QGIS con Python"
+    >>> cadena_texto.find("QGIS")
+    25
+    >>> cadena_texto.find("SIG")
+    -1
+
+.. code-block::
+
+    S.replace(old, new[, count])
+
+Devuelve una cadena en la que se han reemplazado todas las ocurrencias de la cadena ``old``
+por la cadena ``new``. Si se especifica el parámetro ``count``, este indica el número máximo de ocurrencias a reemplazar.
+
+.. code-block:: python
+    :emphasize-lines: 2, 3
+    :linenos:
+
+    >>> coor_pto = "547387.35, 43789234.98"
+    >>> coor_pto_separador_csv = coor_pto.replace(",", ";")
+    >>> coor_pto_separador_csv
+    '547387.35; 43789234.98'
+    >>> coor_pto_separador_punto_decimal = coor_pto_separador_csv.replace(".",",")
+    >>> coor_pto_separador_punto_decimal
+    '547387,35; 43789234,98'
+
+
+Las cadenas también admiten operadores como ``+``, que funciona realizando
+una concatenación de las cadenas utilizadas como operandos y ``*``, en la
+que se repite la cadena tantas veces como lo indique el número utilizado
+como segundo operando.
+
+.. code-block:: python
+    :emphasize-lines: 1, 4
+    :linenos:
+
+    >>> concatena = "con" + "ca" + "te" + "nar"
+    >>> concatena
+    'concatenar'
+    >>> repite = concatena * 2
+    >>> repite
+    'concatenarconcatenar'
+
+Para la comparación de dos cadenas de texto se puede utilizar el operador ``==``:
+
+.. code-block:: python
+    :emphasize-lines: 3, 5
+    :linenos:
+
+    >>> geom_wkt_2 = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
+    >>> geom_wkt_3 = "LINESTRING (30 10, 10 30, 40 40)"
+    >>> geom_wkt == geom_wkt_2
+    True
+    >>> geom_wkt == geom_wkt_3
+    False
+
+f-strings
+'''''''''
+Mediante el mecanismo de **interpolación** en cadenas de texto conseguimos
+sustituir los nombres de las variables por sus valores cuando se construye un *string*.
+A partir de la versión de Python 3.6 apareció una nueva forma potente y eficiente
+de implementar este concepto denominada *f-strings*.
+
+Su sintaxis es muy sencilla, basta con preceder la cadena por una ``f`` e
+incluir las variables o expresiones a interpolar entre llaves ``{`` ... ``}``.
+Vemos un ejemplo:
+
+.. code-block:: python
+    :emphasize-lines: 6
+
+    >>> muni = 'Albacete'
+    >>> pol = 9
+    >>> parce = 45
+    >>> area_ha = 7.5245
+
+    >>> f'La superficie de la parcela {parce} del polígono {pol} del t.m. de {muni} es {area_ha} ha.'
+    'La superficie de la parcela 45 del polígono 9 del t.m. de Albacete es 7.5245 ha.'
+
+
+Booleanos
+^^^^^^^^^
+
+Una variable de tipo booleano sólo puede tener dos valores: ``True``
+y ``False``. Estos valores son especialmente importantes
+para las expresiones condicionales y los bucles. En realidad el tipo
+``bool`` (el tipo de los booleanos) es una subclase del tipo ``int``.
+
+.. note::   El tipo de datos ``bool`` proviene del trabajo desarrollado por el
+            matemático *George Boole* en el ámbito de la lógica matemática, que sentó las bases
+            del álgebra booleana. Este sistema algebraico utiliza dos valores,
+            generalmente representados como verdadero (``1``) y falso (``0``),
+            para realizar operaciones lógicas.
+
+.. error::  Las variables de tipo booleano toman los valores ``True`` y ``False``
+            con la **primera letra en mayúsculas**. En otro caso el intérprete de
+            Python devolverá un error sintáctico.
+
+                    .. code-block:: python
+                        :emphasize-lines: 1, 4
+                        :linenos:
+
+                        >>> is_active = true
+                        Traceback (most recent call last):
+                            ...
+                        NameError: name 'true' is not defined
+
+.. _op_condicionales:
+
+Operadores lógicos o condicionales
+''''''''''''''''''''''''''''''''''
+
+Estos son los distintos tipos de operadores lógicos o condicionales con
+los que se puede trabajar con valores booleanos:
+
+============ =====================  ====================== =====
+Operador     Descripción            Ejemplo                r
+============ =====================  ====================== =====
+``and``          ¿se cumple a y b?  >>> r = True and False ``False``
+``or``           ¿se cumple a o b?  >>> r = True or False  ``True``
+``not``          No a               >>> r = not True       ``False``
+============ =====================  ====================== =====
+
+.. _op_comparacion:
+
+Operadores relacionales o de comparación
+''''''''''''''''''''''''''''''''''''''''
+
+Como en otros lenguajes, Python también soporta operadores de
+comparación entre valores. Estos operadores devuelven ``True`` o ``False``.
+
+.. code-block:: python
+
+   >>> x=1
+   >>> y=2
+   >>> y==x
+   False
+
+Estos son los tipos de operadores relacionales:
+
+============        ==========================  ==============      =====
+Operador            Descripción                 Ejemplo             r
+============        ==========================  ==============      =====
+``==``              ¿son iguales a y b?         >>> r = 5 == 3      ``False``
+``!=``              ¿son distintos a y b?       >>> r = 5 != 3      ``True``
+``<``               ¿es a menor que b?          >>> r = 5 < 3       ``False``
+``>``               ¿es a mayor que b?          >>> r = 5 > 3       ``True``
+``<=``              ¿es a menor o igual que b?  >>> r = 5 <= 3      ``False``
+``>=``              ¿es a mayor o igual que b?  >>> r = 5 >= 3      ``True``
+============        ==========================  ==============      =====
+
+Eliminación de una variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La palabra reservada ``del`` borra completamente una variable.
+
+.. code-block:: python
+    :emphasize-lines: 4
+    :linenos:
+
+    >>> geom_wkt_2 = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
+    >>> geom_wkt_2
+    'POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))'
+    >>> del(geom_wkt_2)
+
+.. error::  Si se quiere acceder a la variable eliminada se mostrará el siguiente mensaje de error:
+
+            .. code-block:: python
+
+                >>> geom_wkt_2
+                Traceback (most recent call last):
+                  File "<stdin>", line 1, in <module>
+                NameError: name 'geom_wkt_2' is not defined
+
+Reglas de nomenclatura de variables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A continuación se enumeran algunas reglas para nombrar variables:
+
+.. error::  Las palabras reservadas **no** pueden ser utilizadas para nombrar a las variables.
+
+        .. code-block:: python
+            :emphasize-lines: 5
+            :linenos:
+
+            >>> del = 1
+              File "<stdin>", line 1
+                del = 1
+                    ^
+            SyntaxError: invalid syntax
+
+Para conocer las palabras reservadas:
+
+.. code-block:: python
+
+   >>> help("keywords")
+   Here is a list of the Python keywords. Enter any keyword to get more
+   help.
+
+.. code-block::
+
+        False               class               from                or
+        None                continue            global              pass
+        True                def                 if                  raise
+        and                 del                 import              return
+        as                  elif                in                  try
+        assert              else                is                  while
+        async               except              lambda              with
+        await               finally             nonlocal            yield
+        break               for                 not
+
+
+-  Los nombres de variables que empiezan por guión bajo (simple ``_`` o
+   doble ``__``) se reservan para variables con significado especial.
+
+-  Python es sensible a mayúsculas y minúsculas.
+
+.. error::  Los espacios en blanco no están permitidos.
+
+        .. code-block:: python
+            :emphasize-lines: 5
+            :linenos:
+
+            >>> mi variable
+              File "<stdin>", line 1
+                mi variable
+                          ^
+            SyntaxError: invalid syntax
+
+.. tip::    Finalmente, aunque no es obligatorio, se recomienda que el nombre de la
+            variable esté relacionado con la información que se almacena en ella,
+            para que sea más fácil entender el programa.
+
+
+Asignación multiple
+~~~~~~~~~~~~~~~~~~~
+
+En una misma línea se pueden definir simultáneamente varias variables, con el mismo valor …
+
+.. code-block:: python
+    :emphasize-lines: 1, 2, 4
+    :linenos:
+
+    >>> x_min_mapcanvas = y_min_mapcanvas = 0.0
+    >>> x_min_mapcanvas
+    0.0
+    >>> y_min_mapcanvas
+    0.0
+
+… o con valores distintos:
+
+.. code-block:: python
+    :emphasize-lines: 1, 2, 4
+    :linenos:
+
+    >>> nombre, edad = "Manuel", 35
+    >>> nombre
+    'Manuel'
+    >>> edad
+    35
+
+
+Asignaciones aumentadas
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Cuando una variable se modifica a partir de su propio valor, se puede
+utilizar la denominada *asignación aumentada*, que es una mezcla de una *asignación*
+y un *operador*. Esta notación compacta existe también en otros lenguajes
+de programación como C++. Por ejemplo,
+
+.. code-block:: python
+        :emphasize-lines: 2
+
+        >>> a = 10
+        >>> a += 5
+        >>> a
+        15
+
+es equivalente a:
+
+.. code-block:: python
+    :emphasize-lines: 2
+
+    >>> a = 10
+    >>> a = a + 5
+    >>> a
+    15
+
+En general se tiene el siguiente cuadro de equivalencias aumentadas:
+
+======================== ================
+**Asignación aumentada** **Equivalencia**
+======================== ================
+a ``+=`` b               a = a ``+`` b
+a ``-=`` b               a = a ``-`` b
+a ``*=`` b               a = a ``*`` b
+a ``/=`` b               a = a ``/`` b
+a ``**=`` b              a = a ``**`` b
+a ``//=`` b              a = a ``//`` b
+a ``%=`` b               a = a ``%`` b
+======================== ================
+
+.. note::   Lo que no se permite en Python son los operadores incremento (``++``) o
+            decremento (``--``) que sí existen en otros lenguajes de programación.
+
+Definición de comentarios
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En Python utilizamos el carácter ``#`` (numeral) para indicar al intérprete que dicha
+línea es un comentario y no la debe procesar como una instrucción de
+Python. Estos pueden establecerse en una línea individual o en la misma línea de
+código.
+
+.. note::   Se pueden utilizar triples comillas dobles (``"""``) o triples
+            comillas simples (``'''``) para establecer comentarios en varias líneas,
+            pero se recomienda no utilizar esta fórmula, ya que las triples comillas
+            suelen utilizarse para crear la documentación de funciones (*docstring*), tal y cómo se verá más
+            adelante. Más información en el siguiente recurso:
+            (`"No uses triples comillas como comentarios" <https://recursospython.com/guias-y-manuales/no-uses-triples-comillas-como-comentarios/>`__).
+
+Estructuras o colecciones de datos
+----------------------------------
+Se amplian los contenidos de esta sección en el siguiente :link-badge:`https://www.youtube.com/watch?v=M0fy_0u_5W4,"videotutorial",cls=badge-danger text-white`
+
+En la sección anterior se definieron las variables que permiten
+almacenar *un único valor*. En Python existen varias estructuras de datos
+(*data structures*) que permiten almacenar *un conjunto de datos*.
+
+.. _listas:
+
+Listas
+~~~~~~
+
+La lista es un tipo de colección ordenada secuencialmente, equivalente a
+lo que en otros lenguajes se conoce por *arrays* o *vectores*. Pueden
+contener cualquier tipo de dato: números, cadenas, booleanos y también
+listas.
+
+Crear y *definir* una lista es tan sencillo como indicar entre corchetes ``[`` ``]``, y
+separados por comas ``,``, los valores que se quieren incluir en la lista:
+
+.. code-block:: python
+
+    >>> mi_lista = [22, True, "PyQGIS", [1, 2]]
+
+El *acceso* a cada uno de los elementos de la lista se realiza escribiendo el
+nombre de la lista e indicando el índice del elemento entre corchetes ``[`` ``]``.
+
+.. important:: Se recuerda que el índice del primer elemento de una lista es ``0`` y no ``1``.
+
+.. code-block:: python
+    :emphasize-lines: 2
+    :linenos:
+
+       >>> mi_lista = [22, True, "PyQGIS", [1, 2]]
+       >>> mi_variable = mi_lista[0]
+       >>> mi_variable
+       22
+
+Si se quiere acceder a un elemento de una lista incluida dentro de otra
+lista se tendrá que utilizar dos veces este operador, primero para
+indicar a qué posición de la lista exterior queremos acceder, y el
+segundo para seleccionar el elemento de la lista interior:
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+       >>> mi_variable = mi_lista[3][0]
+       >>> mi_variable
+       1
+
+.. error::  Si se quiere acceder a un elemento fuera de rango, se generará el
+            siguiente error:
+
+            .. code-block:: python
+                :emphasize-lines: 1, 4
+
+                    >>> mi_variable = mi_lista[1][0]
+                    Traceback (most recent call last):
+                      File "<stdin>", line 1, in <module>
+                    TypeError: 'bool' object is not subscriptable
+
+.. note::   Las matrices no son una estructura propia de Python.
+            Simplemente, una matriz es una lista de listas que nosotros
+            interpretamos desde el punto de vista matemático.
+            Es decir, la estructura ``m = [[1,2],[3,4]]`` nosotros la interpretamos
+            como la matriz 2x2 cuya primera fila es (1,2) y cuya segunda fila es (3,4),
+            pero esto no deja de ser una interpretación.
+
+También se puede utilizar el operador ``[`` ``]`` para *modificar* un elemento de la
+lista si se coloca en la parte izquierda de una asignación. Por tanto, los
+elementos de un lista pueden variar a lo largo de su ciclo de vida (son *mutables*).
+Por ejemplo:
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    >>> mi_lista[1] = False
+    >>> mi_lista
+    [22, False, 'PyQGIS', [1, 2]]
+
+Una curiosidad sobre el operador ``[`` ``]`` de Python es que se puede utilizar
+también números negativos. Si se utiliza un número negativo como índice,
+esto se traduce en que el índice empieza a contar desde el final, hacia
+la izquierda; es decir, con ``[-1]`` se accedería al último elemento de la
+lista, con ``[-2]`` al penúltimo, con ``[-3]``, al antepenúltimo, y así
+sucesivamente.
+
+.. code-block:: python
+    :emphasize-lines: 1, 3
+    :linenos:
+
+    >>> mi_lista[-1]
+    [1, 2]
+    >>> mi_lista[-2]
+    'PyQGIS'
+
+Otra técnica inusual es lo que en Python se conoce como *slicing* o
+particionado, y que consiste en ampliar este mecanismo para permitir
+seleccionar porciones de la lista. Si en lugar de un número se escriben
+dos números inicio y fin separados por dos puntos (``inicio``:``fin``), Python
+interpretará que se quiere una lista que vaya desde la posición inicio a
+la posición fin, sin incluir este último.
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    >>> mi_variable = mi_lista[0:2]
+    >>> mi_variable
+    [22, False]
+
+Si se escriben tres números (``inicio``:``fin``:``salto``) en lugar de dos, el
+tercero se utiliza para determinar cada cuantas posiciones añadir un elemento a la lista.
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    >>> mi_variable = mi_lista[0:4:2]
+    >>> mi_variable
+    [22, 'PyQGIS']
+
+En todo caso las listas ofrecen mecanismos más cómodos para ser
+modificadas a través de las métodos de la clase correspondiente tal y
+como se detalla a continuación.
+
+Métodos del objeto lista
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+En este apartado se facilitan una serie de ejemplo con la sintaxis de distintos
+métodos útiles del objeto lista, aportando una descripción y un ejemplo de
+aplicación.
+
+.. code-block::
+
+    L.append(object)
+
+Añade un objeto ``object`` al final de la lista
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    >>> mi_lista.append(3.141592)
+    >>> mi_lista
+    [22, False, 'PyQGIS', [1, 2], 3.141592]
+
+.. code-block::
+
+    L.pop([index])
+
+Devuelve el valor en la posición ``index`` y lo elimina de la lista.
+Si no se especifica la posición, se utiliza el último elemento de la lista.
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    >>> mi_lista.pop()
+    3.141592
+    >>> mi_lista
+    [22, False, 'PyQGIS', [1, 2]]
+
+.. code-block::
+
+    L.insert(index, object)
+
+Inserta el objeto ``object`` en la posición ``index``
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    >>> mi_lista.insert(3, 3.141592)
+    >>> mi_lista
+    [22, True, 'PyQGIS', 3.141592, [1, 2]]
+
+.. code-block::
+
+    del(L[index])
+
+Borra un elemento de la posición ``index`` de la lista.
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    >>> del(mi_lista[2])
+    >>> mi_lista
+    [22, False, 3.141592, [1, 2]]
+
+También se puede consultar el número de elementos de una lista mediante el
+método ``len()``:
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    >>> len(mi_lista)
+    4
+
+.. _tuplas:
+
+Tuplas
+~~~~~~
+
+Un tupla es simplemente una lista **inmutable**. Al igual que las cadenas de texto, una
+vez creadas, no se pueden modificar sus valores y tienen además un tamaño
+fijo, de forma que no se pueden añadir nuevos elementos ni eliminar los existentes.
+Lo explicado para listas es aplicable a tuplas salvo en la forma de
+*definición*.
+
+.. code-block:: python
+
+    >>> mi_tupla = (22, True, "PyQGIS", [1, 2])
+
+.. note::   En realidad el constructor de la tupla es la coma ``,``, no el paréntesis ``(`` ``)``,
+            pero el intérprete muestra los paréntesis, y nosotros deberíamos
+            utilizarlos, por claridad.
+
+            .. code-block:: python
+
+               >>> mi_tupla = 22, True, "PyQGIS", [1, 2]
+               >>> type(mi_tupla)
+               <class 'tuple'>
+
+El *acceso* a elementos es igual que las listas. Se puede utilizar el
+operador ``[`` ``]`` debido a que las tuplas, al igual que las listas, forman
+parte de un tipo de objetos llamados *secuencias*.
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    >>> mi_variable = mi_tupla[0]
+    >>> mi_variable
+    22
+
+También soporta el particionado:
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    >>> mi_variable = mi_tupla[1:2]
+    >>> mi_variable
+    (True,)
+
+.. error::  Si se intenta modificar un elemento de un tupla, se tendrá la siguiente
+            respuesta del intérprete:
+
+            .. code-block:: python
+                :emphasize-lines: 4
+
+                >>> mi_tupla[1] = False
+                Traceback (most recent call last):
+                  File "<stdin>", line 1, in <module>
+                TypeError: 'tuple' object does not support item assignment
+
+.. tip::    Las tuplas son más ligeras y rápidas que las listas. Se utilizarán
+            cuando se precisa iterar sobre una estructura de datos que nunca va a
+            ser cambiada, por ejemplo, días de la semana y meses del año.
+
+Finalmente, se pueden convertir una lista en tupla y viceversa:
+
+.. code-block:: python
+    :emphasize-lines: 2
+
+    >>> mi_lista = [22, True, "PyQGIS", [1, 2]]
+    >>> mi_tupla = tuple(mi_lista)
+    >>> mi_tupla
+    (22, True, 'PyQGIS', [1, 2])
+
+.. code-block:: python
+    :emphasize-lines: 1
+
+    >>> mi_lista = list(mi_tupla)
+    >>> mi_lista
+    [22, True, 'PyQGIS', [1, 2]]
+
+Diccionarios
+~~~~~~~~~~~~
+
+Los diccionarios, también llamados *matrices asociativas* (o mapeados en
+otros lenguajes), deben su nombre a que son colecciones que relacionan
+una *clave* y un *valor* (``key`` – ``value``). El primer valor se trata de la clave
+y el segundo del valor asociado a la clave. Como clave se puede utilizar
+cualquier valor *inmutable*: se pueden usar números, cadenas, booleanos,
+tuplas, … pero no listas o diccionarios, dado que son *mutables*.
+
+Para *definir* un diccionario en Python se indicará entre llaves ``{`` ``}``, las parejas de elementos
+que lo conforman. En cada pareja indicaremos primero el valor de la clave
+para acceder al elemento, y después el valor que contendrá separado por ``:``.
+En el siguiente ejemplo se muestra un diccionario creado a partir de los
+CRS-EPSG en los que se sirve el servicio WMTS del PNOA de máxima actualidad:
+
+.. image:: images/dictionary_crs_pnoa.png
+
+.. code-block:: python
+
+   >>> mi_diccionario = {"3857": "WGS 84/Pseudo Mercator",
+       "4258": "ETRS89",
+       "4326": "WGS 84",
+       "25828": "ETRS 89/UTM 28N",
+       "25830": "ETRS 89/UTM 30N",
+       "32628": "WGS 84/UTM 28N",
+       "32630": "WGS 84/UTM 30N"}
+
+La diferencia principal entre los diccionarios y las listas o las tuplas
+es que a los valores almacenados en un diccionario se les *accede* no por
+su índice, porque de hecho no tienen orden, sino por su clave,
+utilizando de nuevo el operador ``[`` ``]``.
+
+.. code-block:: python
+
+   >>> mi_diccionario["25830"]
+   'ETRS 89/UTM 30N'
+
+Al igual que en listas también se puede utilizar este operador
+para reasignar valores.
+
+.. code-block:: python
+    :emphasize-lines: 1, 2
+    :linenos:
+
+    >>> mi_diccionario["25830"] = "Sistema de referencia ETRS 89 - P.C. UTM huso 30 Norte"
+    >>> mi_diccionario["25830"]
+    'Sistema de referencia ETRS 89 - P.C. UTM huso 30 Norte'
+
+También se pueden añadir nuevos pares key – values al diccionario:
+
+.. code-block:: python
+    :emphasize-lines: 1, 7, 10
+    :linenos:
+
+    >>> mi_diccionario["25831"] = "ETRS 89/UTM 31N"
+    >>> mi_diccionario
+    {'3857': 'WGS 84/Pseudo Mercator',
+    '4258': 'ETRS89',
+    '4326': 'WGS 84',
+    '25828': 'ETRS 89/UTM 28N',
+    '25830': 'Sistema de referencia ETRS 89 - P.C. UTM huso 30 Norte',
+    '32628': 'WGS 84/UTM 28N',
+    '32630': 'WGS 84/UTM 30N',
+    '25831': 'ETRS 89/UTM 31N'}
+
+Sin embargo, en este caso no se puede utilizar *slicing*, entre otras
+cosas porque los diccionarios no son secuencias, sino *mappings*
+(mapeados, asociaciones).
+
+Métodos del objeto diccionario
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+En este apartado se facilita la sintaxis de distintos métodos del objeto diccionario de texto,
+aportando una descripción y un ejemplo de aplicación.
+
+.. code-block::
+
+    D.get(k[, d])
+
+Busca el valor de la clave ``k`` en el diccionario. Es equivalente a utilizar ``D[k]``
+pero al utilizar este método podemos indicar un valor a devolver por defecto
+si no se encuentra la clave, mientras que con la sintaxis ``D[k]``, de no existir
+la clave se lanzaría una excepción.
+
+.. code-block:: python
+    :emphasize-lines: 1, 3
+    :linenos:
+
+    >>> mi_diccionario.get("25830","Unknown SRC")
+    'Sistema de referencia ETRS 89 - P.C. UTM huso 30 Norte'
+    >>> mi_diccionario.get("25832","Unknown SRC")
+    'Unknown SRC'
+
+.. code-block::
+
+    k in D
+
+Comprueba si el diccionario tiene la clave ``k``.
+
+.. code-block:: python
+    :emphasize-lines: 1, 3
+    :linenos:
+
+    >>> "25830" in mi_diccionario
+    True
+    >>> "25832" in mi_diccionario
+    False
+
+.. code-block::
+
+    D.items()
+
+Devuelve una lista de tuplas con pares clave-valor.
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    >>> mi_diccionario.items()
+    dict_items([
+    ('3857', 'WGS 84/Pseudo Mercator'),
+    ('4258', 'ETRS89'),
+    ('4326', 'WGS 84'),
+    ('25828', 'ETRS 89/UTM 28N'),
+    ('25830', 'Sistema de referencia ETRS 89 - P.C. UTM huso 30 Norte'),
+    ('32628', 'WGS 84/UTM 28N'),
+    ('32630', 'WGS 84/UTM 30N'),
+    ('25831', 'ETRS 89/UTM 31N')
+    ])
+
+.. code-block::
+
+    D.keys()
+
+Devuelve una lista de las claves del diccionario.
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    >>> mi_diccionario.keys()
+    dict_keys(['3857', '4258', '4326', '25828', '25830', '32628', '32630', '25831'])
+
+.. code-block::
+
+    D.values()
+
+Devuelve una lista de los valores del diccionario.
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    >>> mi_diccionario.values()
+    dict_values(['WGS 84/Pseudo Mercator', 'ETRS89', 'WGS 84', 'ETRS 89/UTM 28N',
+    'Sistema de referencia ETRS 89 - P.C. UTM huso 30 Norte',
+    'WGS 84/UTM 28N', 'WGS 84/UTM 30N', 'ETRS 89/UTM 31N'])
+
+Finalmente, se pueden recorrer diccionarios con la estructura repetitiva
+``for`` .. ``in`` que será descrita en el siguiente apartado:
+
+.. code-block:: python
+
+   >>> for key, value in mi_diccionario.items():
+   >>> for key in mi_diccionario.keys():
+   >>> for value in mi_diccionario.values():
+
+Control de flujo
+----------------
+Se amplian los contenidos de esta sección en el siguiente :link-badge:`https://www.youtube.com/watch?v=uv4ehUW3QfI,"videotutorial",cls=badge-danger text-white`
+
+Un programa informático está formado por instrucciones que se ejecutan
+de forma secuencial de *arriba* a *abajo*. Este orden constituye el llamado
+**flujo** del programa. Es posible modificar este flujo secuencial
+para que tome *bifurcaciones* o *repita* ciertas instrucciones. Las
+sentencias que permiten realizar estas modificaciones se engloban en el
+*control de flujo* y el bloque de código que permite agrupar
+instrucciones de manera controlada se denomina *estructura de control*.
+En este capítulo tratamos dos estructuras de control:
+
+- Estructuras de control condicionales.
+- Estructuras de control iterativas o repetitivas.
+
+Sentencias condicionales
+~~~~~~~~~~~~~~~~~~~~~~~~
+En las estructuras de control condicional se decide el camino a seguir dentro del
+flujo del programa a partir la evaluación de una expresión.
+
+.. note::   Cuando escribimos condiciones debemos incluir alguna expresión de
+            comparación usando :ref:`operadores relacionales o de comparación<op_comparacion>`.
+            A su vez, podemos escribir condiciones más complejas utilizando
+            :ref:`operadores lógicos o condicionales<op_condicionales>`.
+
+
+Estructura condicional simple ``if``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+La forma más simple de un estamento condicional es un ``if``
+seguido de la condición a evaluar, dos puntos (``:``) y en la siguiente
+línea e indentado, el código a ejecutar en caso de que se cumpla dicha
+condición.
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    if len(path_file_results) == 0:
+       self.iface.messageBar().pushMessage(c.APPLICATION_NAME,
+                                            "Path filename is empty",
+                                            QgsMessageBar.CRITICAL,
+                                            10)
+
+La estructura ``if`` contiene una condición, si dicha condición se verifica
+verdadera, se ejecutan todas las instrucciones que se encuentran
+indentadas.
+
+.. note::   En Python todo aquello innecesario no hay que escribirlo (``;``, ``{``, ``}``).
+            En otros lenguajes de programación los bloques de código se determinan
+            encerrándolos entre llaves y el indentarlos no se trata más que
+            de una buena práctica para que sea más sencillo seguir el flujo del programa
+            con un solo golpe de vista. Sin embargo, en Python esta indentación es una
+            una obligación, no una elección.
+
+Estructura condicional doble ``if`` … ``else``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Para la ejecución de un cierto número de órdenes en el caso de que no se
+cumpla una primera condición, se utiliza el operador ``else``. Su sintaxis
+es la siguiente:
+
+.. code-block::
+
+    if condition :
+        statements-1
+    else:
+        statements-2
+
+Un ejemplo de aplicación en el contexto de estes curso se muestra en el
+siguiente bloque de código con un ejemplo de creación de un objeto de la clase `QgsVectorLayer <https://qgis.org/api/3.40/classQgsVectorLayer.html>`_.
+Utilizamos la cláusula ``if`` (línea 4) para evaluar la condición la validez de la capa vectorial creada (línea 5). Si ésta
+es válida, devolverá el objeto creado. En caso contrario (fuente de datos incorrecta u otro problema) ``else`` (línea 6),
+mostrará un mensaje integrado en QGIS informando del error y devolverá un valor ``None`` (línea 12).
+
+.. code-block:: python
+    :emphasize-lines: 4, 6
+    :linenos:
+
+    qgsvectorlayer = QgsVectorLayer(datasource,
+                                    str_layer_name,
+                                    provider_name)
+    if qgsvectorlayer.isValid():
+        return qgsvectorlayer
+    else:
+        str_msg = "Failed to create QgsVectorLayer " + str_layer_name
+        self.iface.messageBar().pushMessage(c.CONST_APPLICATION_NAME,
+                                            str_msg,
+                                            QgsMessageBar.CRITICAL,
+                                            10)
+        return None
+
+Estructura condicional múltiple ``if`` … ``elif`` ... ``elif`` … ``else``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Cuando tenemos más de dos opciones, Python proporciona dos formas de
+resolver la estructura condicional.
+Utilizamos como ejemplo un ejercicio que permita determinar el signo
+de un número introducido por pantalla, de forma que tendremos tres posibles
+resultados: que sea positivo, negativo o que sea cero.
+
+La primera forma de resolver el ejercicio propuesto sería la siguiente:
+
+.. code-block:: python
+    :emphasize-lines: 2, 4, 5, 7
+    :linenos:
+
+    numero = int(input("Dame un número entero: "))
+    if numero < 0:
+        print("Negativo")
+    else:
+        if numero > 0:
+            print("Positivo")
+        else:
+            print("Cero")
+
+Otra forma de resolver el ejercicio es a través de ``elif`` que
+es una contracción de *else if*. Es decir, primero se evalúa la
+condición del ``if``. Si es cierta, se ejecuta su código y se continúa
+ejecutando el código posterior al condicional; si no se cumple, se
+evalúa la condición del ``elif``. Si se cumple la condición del ``elif`` se
+ejecuta su código y se continúa ejecutando el código posterior al
+condicional; si no se cumple y hay más de un ``elif`` se continúa con el
+siguiente en orden de aparición. Si no se cumple la condición del ``if`` ni
+de ninguno de los ``elif``, se ejecuta el código del ``else``.
+
+.. code-block:: python
+    :emphasize-lines: 2, 4, 6
+    :linenos:
+
+    numero = int(input("Dame un número entero: "))
+    if numero < 0:
+        print("Negativo")
+    elif numero > 0:
+        print("Positivo")
+    else:
+        print("Cero")
+
+Bucles o estructuras repetitivas o iterativas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Mientras que los *condicionales* permiten ejecutar distintos fragmentos
+de código dependiendo de ciertas condiciones, los *bucles* permiten
+ejecutar un mismo fragmento de código un cierto número de veces,
+mientras se cumpla una determinada condición.
+Cada ejecución de las sentencias que se repiten se denomina *iteración*.
+Siempre ha de existir una condición de parada, es decir, hay que
+garantizar que en algún momento se darán las condiciones adecuadas
+para que el bucle pare. En caso contrario se produciría un bucle
+infinito.
+
+Todo bucle contiene por tanto, los siguientes elementos (aunque no necesariamente en ese orden):
+
++ Iniciación de las variables o contadores referentes al bucle.
++ Decisión / condición de finalización → continuar con el bucle o terminar.
++ Cuerpo del bucle: instrucciones que se repiten.
+
+En el cuerpo del bucle, necesariamente habrá alguna (o algunas)
+instrucciones que modifiquen las condiciones de la expresión a
+evaluar para poder permitir y asegurar la salida del bucle.
+
+Bucle indefinido: ``while``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+El bucle ``while`` ejecuta un fragmento de código *mientras* se
+cumpla una condición. Se utiliza cuando no se conoce a priori el número
+de iteraciones. Para ello, se comprueba en primer lugar la condición (línea 2) y
+despúes se ejecuta el cuerpo del bucle (líneas 3-4). Es necesario que las variables
+de la condición tengan un valor asignado antes del bucle (línea 1). Finalmente,
+el cuerpo del bucle debe alterar de alguna forma la condición de salida
+para que el bucle tenga sentido (línea 4).
+
+.. code-block:: python
+    :emphasize-lines: 2
+    :linenos:
+
+    contador = 0
+    while contador <= 10:
+        print(contador)
+        contador += 1
+
+Bucle definido: ``for`` .. ``in``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+En Python ``for`` se utiliza como una forma genérica de iterar sobre una
+secuencia, ejecutando un bloque de código para cada elemento que
+tengamos en la *secuencia*.
+
+Algunos ejemplos de tipos y estructuras de datos que permiten ser iteradas
+(*recorridas*) son: cadenas de texto, listas, diccionarios, ficheros, etc.
+
+.. code-block:: python
+
+    secuencia = ["uno", "dos", "tres"]
+    for elemento in secuencia:
+        print(elemento)
+
+Python proporciona la función llamada ``range`` que permite generar
+una lista al vuelo que va desde el primer número que se le indique al
+segundo, con un determinado paso. Su sintaxis es la siguiente:
+
+.. code-block::
+
+    range(start-value, end-value, difference between the values)
+
+Se propone al alumno probar la ejecución de los siguientes bucles ``for``:
+
+.. code-block:: python
+
+    >>> for i in range(0,10): # recorre valores del 0 a 9
+            print(i)
+    >>> for i in range(0,10,2): # recorre valores de 2 en 2 del 0 a 8
+            print(i)
+    >>> for i in range(10,0,-1): # recorre valores de 10 al 1
+            print(i)
+
+Control de bucles: sentencias ``break``, ``continue``, ``pass``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+En este apartado estudiamos las sentencias ``continue``, ``break`` y  ``pass``
+para manipular el comportamiento normal de los bucles.
+
+.. note:: Estas sentencias se pueden utilizar tanto en bucles ``for`` como ``while``.
+
+.. tabbed:: continue
+
+    ``continue`` regresa al comienzo del bucle, ignorando todas las sentencias
+    que quedan en la iteración actual del bucle e inicia la siguiente
+    iteración.
+
+    .. code-block:: python
+        :emphasize-lines: 3
+
+        :linenos:
+
+        for letra in "PyQGIS":
+            if letra == "Q":
+                continue
+            print("Letra actual: ", letra)
+        print("Adios")
+
+    Produce la siguiente salida:
+
+    .. code-block::
+
+        Letra actual:  P
+        Letra actual:  y
+        Letra actual:  G
+        Letra actual:  I
+        Letra actual:  S
+        Adios
+
+    .. code-block:: python
+        :emphasize-lines: 5
+        :linenos:
+
+        numero = int(input("Dame un número entero: "))
+        while numero > 0:
+           numero = numero -1
+           if numero == 5:
+              continue
+           print("Valor número actual:", numero)
+        print("Adios")
+
+    Produce la siguiente salida:
+
+    .. code-block::
+
+        Valor variable actual: 9
+        Valor variable actual: 8
+        Valor variable actual: 7
+        Valor variable actual: 6
+        Valor variable actual: 4
+        Valor variable actual: 3
+        Valor variable actual: 2
+        Valor variable actual: 1
+        Valor variable actual: 0
+        Adios
+
+.. tabbed:: break
+
+    ``break`` termina el bucle actual y continua con la ejecución de la
+    siguiente instrucción.
+
+    .. code-block:: python
+        :emphasize-lines: 3
+        :linenos:
+
+        for letra in "PyQGIS":
+            if letra == "Q":
+                break
+            print("Letra actual: ", letra)
+        print("Adios")
+
+    Produce la siguiente salida:
+
+    .. code-block::
+
+        Letra actual:  P
+        Letra actual:  y
+        Adios
+
+    .. code-block:: python
+        :emphasize-lines: 5
+        :linenos:
+
+        numero = int(input("Dame un número entero: "))
+        while numero > 0:
+           numero = numero -1
+           if numero == 5:
+              break
+           print("Valor número actual:", numero)
+        print("Adios")
+
+    Produce la siguiente salida:
+
+    .. code-block::
+
+        Valor variable actual: 9
+        Valor variable actual: 8
+        Valor variable actual: 7
+        Valor variable actual: 6
+        Adios
+
+.. tabbed:: pass
+
+    ``pass`` tal como su nombre lo indica es una operación nula, o sea que no
+    pasa nada cuando se ejecuta.
+
+    .. code-block:: python
+        :emphasize-lines: 3
+        :linenos:
+
+        for letra in "PyQGIS":
+            if letra == "Q":
+                pass
+            print("Letra actual: ", letra)
+        print("Adios")
+
+    Produce la siguiente salida:
+
+    .. code-block::
+
+        Letra actual:  P
+        Letra actual:  y
+        Letra actual:  Q
+        Letra actual:  G
+        Letra actual:  I
+        Letra actual:  S
+        Adios
+
+    .. tip::    ``pass`` se puede utilizar cuando una sentencia es requerida por la sintaxis pero el programa no requiere ninguna acción.
+                Se usa normalmente para crear clases, funciones y bucles en su mínima expresión, por ejemplo:
+
+                .. code-block:: python
+
+                   >>> class MyEmptyClass:
+                        pass  # TODO: acuerdate de implementar esto
+
+Funciones definidas por el usuario
+----------------------------------
+Se amplian los contenidos de esta sección en el siguiente :link-badge:`https://www.youtube.com/watch?v=vlJoK9n73qs,"videotutorial",cls=badge-danger text-white`
+
+Una **función** es un fragmento de código con un nombre asociado que
+realiza una serie de tareas y devuelve un valor.
+
+.. tip::    Una buena práctica en programación consiste en diseñar la finalidad de una función
+            para realizar una única acción, reutilizable y por tanto, tan
+            genérica como sea posible.
+
+Definición de funciones con un solo argumento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En Python las funciones se declaran con la palabra clave ``def``
+que es la abreviatura de *define* seguida del
+nombre de la función y entre paréntesis ``(`` ``)`` y los argumentos separados por
+comas ``,``. A continuación, en otra línea, indentado y después de los dos
+puntos ``:`` se tendrían las líneas de código que conforman el código a
+ejecutar por la función.
+
+.. note::   Nos referiremos a *argumentos* y *parámetros* indistintamente en este tutorial.
+            Por otro lado, en Python a las funciones de las clases se les denomina métodos.
+
+.. code-block:: python
+    :linenos:
+
+    def func(pass_argument):
+        """
+        Example function definition with a simple argument
+        :param pass_argument: string to print
+        :type pass_argument: str
+        :rtype: None
+        """
+        print(pass_argument)
+
+En el código anterior se puede introducir una cadena de texto (línea 2-6)
+como primeras líneas del cuerpo de la función denominada *docstring* (cadena
+de documentación), que es lo que imprime la función ``help`` de Python:
+
+.. code-block:: python
+
+    >>> help(func)
+    Help on function func in module __main__:
+    func(pass_argument)
+        Example function definition with a simple argument
+        :param pass_argument: string to print
+        :type pass_argument: str
+
+Denominamos *activar*, *invocar* o *llamar* a un función a la acción de usarla,
+ya que al declararla lo único que hacemos es
+asociar un nombre al fragmento de código que conforma la función. Para
+llamar (invocar) a la función (ejecutar su código) se escribiría el
+nombre de la función a la que se quiere llamar seguido de los valores
+que se quieran pasar como parámetros entre paréntesis.
+
+.. code-block:: python
+
+        >>> str_argument = "Pass argument string"
+        >>> func(str_argument)  # calling a function
+        Pass argument string
+
+
+Definición y uso de funciones con varios argumentos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+No todas las funciones tienen un solo argumento. Se define ahora una función que imprime dos valores
+pasados como parámetros.
+
+.. code-block:: python
+    :linenos:
+
+    def mi_funcion(param1, param2):
+        """Esta funcion imprime los dos valores pasados como parametros"""
+        print(param1)
+        print(param2)
+
+.. code-block:: python
+
+    >>> mi_funcion("parámetro 1", "parámetro 2")
+    parámetro 1
+    parámetro 2
+
+.. error::  El número de valores que se pasan como parámetro al llamar a la función
+            tiene que coincidir con el número de parámetros que la función acepta
+            según la declaración de la función. En caso contrario Python emitirá la
+            correspondiente excepción.
+
+            .. code-block:: python
+
+                >>> mi_funcion("parámetro 1", "parámetro 2", "otro parámetro")
+                Traceback (most recent call last):
+                  File "<input>", line 1, in <module>
+                TypeError: mi_funcion() takes 2 positional arguments but 3 were given
+
+Al llamar una función, se le deben pasar sus argumentos en el mismo
+orden en el que los espera. Pero esto puede evitarse, haciendo uso del
+paso de argumentos como *keywords*.
+
+Definición y uso de funciones sin argumentos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Lo único que se debe tener presente en este caso es que es obligatorio
+utilizar paréntesis a continuación del identificador, tanto para al definir
+la función ...
+
+.. code-block:: python
+    :linenos:
+
+    def hello_world():
+        """
+        Example function definition without arguments
+        :rtype: None
+        """
+        print("You are in Hellow World")
+
+...  como al invocarla.
+
+.. code-block:: python
+
+    >>> my_var = hello_world()  # calling a function
+    You are in Hellow World
+
+.. note::   A los fragmentos de código que tienen un nombre asociado y
+            no devuelven valores se les suele llamar **procedimientos**.
+            En Python no existen los procedimientos como tales, ya
+            que cuando el programador no especifica un valor de retorno la función
+            devuelve el valor ``None`` (nada).
+            ¿Y para qué sirve una función que no devuelve nada? Bueno, puede, por ejemplo,
+            mostrar mensajes o resultados por pantalla.
+
+.. code-block:: python
+
+        >>> print("Return value function: " + str(type(my_var)))
+        Return value function: <class 'NoneType'>
+
+Definición de funciones con devolución de valores
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En el siguiente ejemplo se incorpora en el código del cuerpo de la función
+la palabra reservada ``return``, para devolver el valor de la función.
+
+.. code-block:: python
+    :emphasize-lines: 12
+    :linenos:
+
+    def sum(a, b):
+        """
+        sum of two numbers
+        :param a: first operant
+        :type a: int or float
+        :param b: second operant
+        :type b: int or float
+        :return: suma
+        :rtype: int or float
+        """
+        c = a + b
+        return c
+
+A continuación se invoca la función en línea imprimiendo el resultado.
+
+.. code-block:: python
+    :linenos:
+    :emphasize-lines: 3
+
+    >>> x = 10
+    >>> y = 50
+    >>> print("Result of addition " + str(x) + " + " + str(y) + " = " + str(sum(x, y)))
+    Result of addition 10 + 50 = 60
+
+También se podrían pasar varios valores que retornar a ``return``.
+
+.. note::   Sin embargo esto no quiere decir que las funciones Python puedan devolver
+            varios valores, lo que ocurre en realidad es que Python crea una tupla
+            al vuelo cuyos elementos son los valores a retornar, y esta única
+            variable es la que se devuelve:
+
+.. code-block:: python
+    :linenos:
+
+    def f(x, y):
+        return x * 2, y * 2
+
+El resultado de la ejecución de este programa sería:
+
+.. code-block:: python
+
+    >>> a, b = f(1, 2)
+    >>> print(a, b)
+    2 4
+
+Funciones con argumentos por defecto
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Los valores opcionales o por defecto o por omisión de los parámetros se
+definen situando un signo igual después del nombre del parámetro y a
+continuación el valor por defecto:
+
+.. code-block:: python
+
+    >>> def imprimir(texto, veces = 1):
+            print(veces * texto)
+
+La llamada a la función imprimir sin especificación del parámetro muestra por
+pantalla el siguiente resultado:
+
+.. code-block:: python
+
+    >>> imprimir("PyQGIS")
+    PyQGIS
+
+Especificando 3 veces el número de repeticiones obtenemos el siguiente resultado:
+
+.. code-block:: python
+
+    >>> imprimir("PyQGIS", 3)
+    PyQGISPyQGISPyQGIS
+
+Funciones con argumentos de longitud variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Finalmente, también es posible definir una función con un número
+variable de parámetros.
+
+.. code-block:: python
+    :emphasize-lines: 2
+    :linenos:
+
+    def print_variable_argument(convencional_argument,
+                                *variable_argument):
+        """
+        Example function with variable lenght argument
+        :param convencional_argument: conventional argument
+        :param variable_argument: variable argument
+        """
+        str_msg = "Convencional argument: "
+        str_msg += str(convencional_argument)
+        str_msg += ", Variable arguments: "
+        for var in variable_argument :
+            str_msg += str(var) + ", "
+        print(str_msg)
+
+A continuación se muestran los resultados de la llamada a la función
+definida sin y con argumentos de longitud variable.
+
+.. code-block:: python
+
+        >>> print_variable_argument(60)
+        Convencional argument: 60, Variable arguments:
+        >>> print_variable_argument(100,90,40,60)
+        Convencional argument: 100, Variable arguments: 90, 40, 60,
+
+.. TODO: Bien explicado en D:\FORMA_DOCS\12_INFORMATICA\11_PYTHON\01_courses\201510_IGN_Cleoformacion
+
+Paso de variables por referencia o por valor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En el cuerpo de las funciones es posible definir y usar variables. Vamos a
+estudiar con detenimiento algunas propiedades de las variables definidas en el cuerpo de una
+función y en qué se diferencian de las variables que definimos fuera de cualquier función, es
+decir, en el denominado programa principal.
+
+En el paso *por referencia* lo que se pasa como argumento es una
+referencia o puntero a la variable, es decir, la dirección de memoria en
+la que se encuentra el contenido de la variable, y no el contenido en
+si. En el paso *por valor*, por el contrario, lo que se pasa como
+argumento es el valor que contenía la variable.
+
+Si se quiere modificar el valor de uno de los argumentos y que estos
+cambios se reflejen fuera del ámbito de la función, se tendría que pasar
+el parámetro por referencia.
+
+En el caso de Python los valores mutables se comportan como paso por
+referencia, y los inmutables como paso por valor:
+
+.. code-block:: python
+    :linenos:
+
+    def f(x, y):
+        x = x + 3
+        y.append(23)
+        print("Valor var x dentro de func:", x, "Valor var y dentro de func:", y)
+
+.. code-block:: python
+
+        >>> x = 22
+        >>> y = [22]
+        >>> f(x, y)
+        Valor var x dentro de func: 25 Valor var y dentro de func: [22, 23]
+        >>> print("Valor variable x fuera de la función:", x, "Valor variable y fuera de la función:", y)
+        Valor var x dentro de func: 22 Valor var y dentro de func: [22, 23]
+
+Vemos a continuación más ejemplos de argumentos por referencia vs. pasos por valor
+
+.. code-block:: python
+    :linenos:
+
+    def fun(a):
+        a = a + 9000
+        print("var value inside the function: ", a)
+
+.. code-block:: python
+
+        >>> a = 1
+        >>> fun(a)
+        var value inside the function:  9001
+        >>> print("var value outside the function: ", a)
+        var value outside the function:  1
+
+.. code-block:: python
+    :linenos:
+
+    def pass_ref(list1):
+        """
+        Example 2 pass by reference versus pass by value
+        :param a: lista a imprimir
+        :type a: list
+        """
+        list1.extend([23,89])
+        print("List inside the function: ", list1)
+
+.. code-block:: python
+
+        >>> list1 = [12, 67, 90]
+        >>> print("List before pass: ", list1)
+        List before pass:  [12, 67, 90]
+        >>> pass_ref(list1)
+        List inside the function:  [12, 67, 90, 23, 89]
+        >>> print("List outside the function: ", list1)
+        List outside the function:  [12, 67, 90, 23, 89]
+
+
+Ámbito de las variables: variables locales y globales
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+    :linenos:
+
+    def func():
+        """
+        Example 1 scope of variables
+        :param a: number to print
+        :type a: int
+        """
+        a = 1
+        print("Inside the function the value of a is acting as local variable", a)
+
+.. code-block:: python
+
+        >>> a = 9000
+        >>> func()
+        Inside the function the value of a is acting as local variable 1
+        >>> print("Outside the function the value of a is acting as global variable", a)
+        Outside the function the value of a is acting as global variable 9000
+
+La sentencia ``global`` se utiliza para declarar variables globales.
+
+.. code-block:: python
+    :emphasize-lines: 7
+    :linenos:
+
+    def func():
+        """
+        Example 2 scope of variables
+        :param a: number to print
+        :type a: int
+        """
+        global a
+        a = a + 7
+        print("2.- Variable a is now global", a)
+
+.. code-block:: python
+
+        >>> a = 9000
+        >>> print("1.- Variable a before pass: ", a)
+        1.- Variable a before pass:  9000
+        >>> func()
+        2.- Variable a is now global 9007
+        >>> print("3.- Accesing the value a outside the function", a)
+        3.- Accesing the value a outside the function 9007
+
+.. _poo:
+
+Programación orientada a objetos en Python
+------------------------------------------
+.. http://courseware.url.edu.gt/Facultades/Facultad%20de%20Ingenier%C3%ADa/Ingenier%C3%ADa%20en%20Inform%C3%A1tica%20y%20Sistemas/Segundo%20Ciclo%202011/Introducci%C3%B3n%20a%20la%20Programaci%C3%B3n/Objetos%20de%20aprendizaje/Unidad%202B/Unidad%202B/index.html
+.. TODO: mirar este nuevo  contenido: https://recursospython.com/guias-y-manuales/clases-y-orientacion-a-objetos/
+
+Python es un lenguaje de *scripting* muy popular que, además, 
+ofrece soporte completo para el paradigma de Programación Orientada a Objetos (POO). 
+En este capítulo se presenta una descripción teórica de los conceptos fundamentales y 
+las principales características de la POO, así como detalles sobre su 
+implementación específica en Python.
+
+.. note::   Los conceptos abordados en este capítulo se aplicarán más adelante 
+            en la descripción de las APIs de QGIS.
+
+
+.. image:: images/mindmapple_poo.jpg
+
+Paradigma de POO
+~~~~~~~~~~~~~~~~
+
+Un paradigma de programación representa un enfoque particular o
+filosofía para diseñar soluciones de software y Python implementa
+varios paradigmas: imperativo, procedural, funcional y POO.
+En el paradigma de la POO los conceptos del mundo real relevantes
+para resolver un determinado problema se modelan a través de clases
+y objetos y sus interacciones, trasladando el mundo real al mundo informático.
+
+La idea fundamental de la orientación a objetos y de los lenguajes que implementan este paradigma de programación,
+es combinar (encapsular) en una sola unidad tanto los *datos* como las *funciones* que operan (manipulan) sobre los datos.
+Esta característica permite modelar los objetos del mundo real de un modo mucho más eficiente que con funciones y datos.
+Esta unidad de programación se denomina **objeto**.
+
+
+Conceptos básicos de la POO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A continuación, se presentan los conceptos fundamentales que toda persona que trabaje 
+con Programación Orientada a Objetos (POO) debe comprender y aplicar de forma continua.
+
+Una **clase** es simplemente una abstracción que hacemos de nuestra
+experiencia sensible. El ser humano tiende a agrupar seres o cosas con
+características similares (*objetos*) en grupos o categorías (*clases*). Las
+clases son abstracciones que agrupan entidades con un *estado* y unas
+*funcionalidades* similares. El nivel de detalle con el que se definen
+depende de la capacidad de abstración de quien analiza el objeto.
+
+-  El **estado** se define a través de variables llamadas **atributos**
+   (o características).
+
+-  La **funcionalidad** se modela a través de funciones a las que se les
+   conoce con el nombre de **métodos** (o acciones) del objeto, que
+   representan su **comportamiento**. En su implementación, los métodos
+   son segmentos de código en forma de funciones.
+
+.. important::  Una **clase** se puede considerar como un tipo de dato definido por el
+                usuario que permite definir y representar colecciones de objetos y
+                proveen un modelo o *plantilla* genérica para su creación. Dicho de otra forma,
+                una clase es un *molde* o prototipo que se utiliza para crear objetos de un tipo específico.
+
+Ejemplo de una clase:
+
+.. image:: images/class_example.png
+
+.. note::   En notación del Lenguaje Unificado de Modelado (UML, *Unified Modeling Language*)
+            una clase se representa en un rectángulo con tres compartimentos: el nombre
+            de la clase, sus atributos y sus métodos.
+
+            + Notación de atributo: ``nombreAtributo:tipoDato = valorPorDefecto``
+
+            + Notación de método: ``nombreMetodo(listaParametros::tipoDato):tipoDatoDevuelto``
+
+Al contrario de lo que sucede en la programación estructurada, donde
+variables y funciones están separadas, en la POO los objetos integran
+datos y algoritmos.
+
+.. important::  Un **objeto** es un ejemplar de una clase
+                (instancia), una entidad con valores específicos de atributos y
+                operaciones:
+
++-----------------------------+
+| **miLavadora:Lavadora**     |
++=============================+
+| marca = "LG"                |
+|                             |
+| modelo = "F4J6TY0W"         |
+|                             |
+| numero de serie = "S321158" |
+|                             |
+| capacidad = 8               |
++-----------------------------+
+|                             |
++-----------------------------+
+
+.. note::   En el contexto de aplicaciones para SIG, ejemplos de objetos podrían ser
+            una tabla, una capa vectorial, una capa ráster, la simbología de una capa, etc.
+
+            En el desarollo de interfaces gráficas de usuario con PyQt un objeto podría ser un
+            botón de acción, una ventana, un diálogo, etc.
+
+La duración de un objeto en un programa siempre está limitada en el
+tiempo. Cada objeto es responsable de inicializarse y destruirse de
+forma correcta: los objetos son creados mediante un mecanismo denominado
+**instanciación** y dejan de existir cuando son destruidos.
+
+Por tanto una **clase** es un modelo de un determinado tipo de objetos, mientras
+que los **objetos** son instancias de una determinada clase.
+
+Implementación de clases en Python
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En Python las clases se definen mediante la palabra reservada ``class`` seguida
+del nombre de la clase, dos puntos (``:``) y a continuación, indentado, el
+cuerpo de la clase. Como en el caso de las funciones, si la primera
+línea del cuerpo es una cadena de texto, esta será la cadena de
+documentación de la clase o *docstring*.
+
+.. code-block::
+
+    class <class name>(<parent class name>):
+        <method definition-1>
+        <method definition-n>
+
+Los **atributos** que se aplican a toda la clase son definidos al principio
+y se denominan atributos de clase (línea 3 del siguiente ejemplo). Todos los **métodos** incluidos
+en la definición de la clase pasan el objeto en cuestión como primer parámetro (línea 4).
+La palabra ``self`` es utilizada para este parámetro.
+
+.. note::   El uso de ``self`` es actualmente por convención, no se
+            trata de una palabra reservada de Python, pero es una de las
+            convenciones más respetadas.
+
+Ejemplo de implementación de una clase:
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+    class MyClass:
+        """ Brief: a simple example class """   # docstring
+        i = 12345                               # class attribute
+        def method_1(self):                     # regular method
+            return 'Hola Mundo'
+
+Cada objeto creado a partir de una clase se denomina *instancia* de la clase.
+Para **instanciar** una clase en Python:
+
+.. code-block:: python
+
+    x = MyClass()  # creacion de un objeto de la clase MyClass
+
+Una vez creado el objeto, se puede acceder a sus atributos y métodos
+mediante la sintaxis ``objeto.atributo`` (línea 1) y ``objeto.metodo()`` (línea 3):
+
+.. code-block:: python
+    :linenos:
+
+    >>> x.i  # acceso a atributos
+    12345
+    >>> x.method_1()  # acceso a metodos
+    Hola Mundo
+
+El método ``__init__``, con una doble barra baja ``__`` al principio y final del
+nombre, se ejecuta justo después crear un objeto (instancia de una
+clase). El método ``__init__`` sirve, como sugiere su nombre, para
+realizar cualquier proceso de **inicialización** que sea necesario. Es
+el equivalente al *constructor* de otros lenguajes orientados a objetos
+como C++.
+
+Ejemplo de clase con el método constructor ``__init__``:
+
+.. code-block:: python
+
+        class NumeroComplejo:
+            """
+            Resumen: Números complejos
+            """
+            def __init__(self,
+                         parte_real,
+                         parte_imaginaria):
+                """
+                Resumen: Método constructor de la clase
+                :param parte_real: parte real del número
+                :type parte_real: real number
+                :param parte_imaginaria: parte imaginaria del núemero
+                :type parte_imaginaria: real number
+                """
+                print("¡Clase inicializada!")
+                self.r = parte_real
+                self.i = parte_imaginaria
+
+El primer parámetro de ``__init__`` y del resto de métodos de la clase es
+siempre ``self`` que sirve para referirse al objeto actual.
+
+En este caso, para crear un objeto se escribiría el nombre de la clase
+seguido de cualquier parámetro que sea necesario entre paréntesis.
+Estos parámetros son los que se pasarán al método ``__init__``
+
+.. code-block:: python
+
+    >>> x = NumeroComplejo(3.0, -4.5)
+    ¡Clase inicializada!
+
+Se puede acceder a la parte real e imaginaria como en el caso anterior:
+
+.. code-block:: python
+
+    >>> print(x.r, x.i)
+    3.0 -4.5
+
+.. note:: Python pasa el primer argumento ``self`` (la referencia al objeto que se crea) automágicamente.
+
+Características de la POO
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Hay cuatro conceptos que son básicos en el paradigma de POO que lo
+llevan a ser un estilo de desarrollo que permite crear código
+reutilizable: la abstracción, el encapsulamiento, la herencia y el
+polimorfismo.
+
+.. tabbed:: Abstracción
+    :class-content: pl-1 bg-warning
+
+    Anteriormente definimos que la clase es una representación abstracta de un objeto, pero ¿qué es *abstracción*?
+
+
+    .. important::  La **abstracción** es el proceso mental de extracción de las
+                    características esenciales de algo, ignorando los detalles superfluos.
+                    Es un mecanismo, quizá innato, por el que tendemos a hacer simple
+                    aquello que por su naturaleza es complejo.
+
+    Es decir, cuando vemos un objeto, solo nos fijamos en aquellas propiedades y comportamiento que
+    nos son útiles para el fin que perseguimos, eliminando aquellos otros
+    que, de momento, son irrelevantes o nos distraen del problema.
+
+    Desde otro enfoque, la abstracción surge del reconocimiento de las
+    similitudes entre ciertos objetos, situaciones o procesos del mundo
+    real, y en la decisión de concentrarse en esas similitudes e ignorar por
+    el momento las diferencias.
+
+    Por ejemplo, en una persona podrían ser características esenciales el
+    DNI, el nombre, la edad, la talla o el peso. Sin embargo, la marca de
+    sus calcetines es una característica superflua.
+
+    En nuestro contexto nos va a permitir **generalizar** los tipos de objetos
+    a través de las clases y simplificar nuestros programas.
+
+.. tabbed:: Encapsulación
+    :class-content: pl-1 bg-warning
+
+    Permite **empaquetar** nuestro código dentro de una unidad (objeto) donde se puede determinar
+    el ámbito de actuación.
+
+    .. important::      La **encapsulación** es el proceso mediante el cual se ocultan las
+                        estructuras de datos y los detalles de implementación, permitiendo
+                        considerar a los objetos como *cajas negras*, evitando que otros objetos
+                        accedan a detalles que no les interesan. Esta cualidad hace que la POO
+                        sea muy apta para la reutilización de programas.
+
+    Un ejemplo de encapsulación sería una medicina prescrita por el médico
+    en forma de cápsula. Sabemos sus beneficios pero no como funciona por
+    dentro.
+
+    De modo predeterminado, el conjunto de atributos y métodos se encuentran
+    encapsulados o contenidos dentro de una misma clase, de manera que son
+    **miembros** de dicha clase. Esos métodos y atributos pueden ser
+    utilizados por otras clases sólo si la clase que los encapsula les
+    brinda los permisos necesarios para ello. De esta forma, se impide el
+    acceso a determinados métodos y atributos de los objetos estableciendo
+    así qué puede utilizarse desde fuera de la clase.
+
+    Esto se consigue en otros lenguajes de programación como Java
+    utilizando modificadores de acceso que definen si cualquiera puede
+    acceder a esa función o variable (``public``) o si está restringido el
+    acceso a la propia clase (``private``).
+
+    En Python no existen los modificadores de acceso, y lo que se suele
+    hacer es que el acceso a una variable o función viene determinado por su
+    nombre: si el nombre comienza con dos guiones bajos (``__``) (y no termina
+    también con dos guiones bajos) se trata de una variable o función
+    *privada*, en caso contrario es *pública*.
+
+    .. note::   Los métodos cuyo nombre comienza y termina con dos guiones bajos ``__`` son métodos especiales
+                que Python llama automáticamente bajo ciertas circunstancias.
+
+    En el siguiente ejemplo, definimos un método público (línea 2) y un método privado (línea 4) ...
+
+    .. code-block:: python
+        :linenos:
+        :emphasize-lines: 2, 4
+
+        class Encapsula:
+            def public_method(self):
+                print("Has accedido a un método público")
+            def __private_method(self):
+                print("Has accedido a un método privado")
+
+    ... tras instanciar la clase Encapsula y crear un objeto ...
+
+    .. code-block:: python
+
+        >>> encapsula_object = Encapsula()
+
+    ... sólo se imprimiría la cadena correspondiente al método ``publico()``, ...
+
+    .. code-block:: python
+
+        >>> encapsula_object.public_method()
+        Has accedido a un método público
+
+    .. error::  ... mientras que al intentar llamar al método ``__privado()`` Python
+                lanzará una excepción:
+
+                .. code-block:: python
+
+                    >>> encapsula_object.__private_method()
+                    Traceback (most recent call last):
+                      File "<input>", line 1, in <module>
+                    AttributeError: 'Encapsula' object has no attribute '__private_method'
+
+    La *abstracción* y el *encapsulamiento* son conceptos complementarios: la
+    primera se centra en el comportamiento observable de un objeto, mientras
+    el encapsulamiento se centra en la implementación que da lugar a este
+    comportamiento.
+
+.. tabbed:: Herencia
+    :class-content: pl-1 bg-warning
+
+    En un lenguaje orientado a objetos cuando una clase (**subclase** o **clase hija** o **clase derivada**)
+    **hereda** de otra clase existente (**superclase** o **clase madre** o **clase base**) se
+    consigue que la subclase contenga todos los atributos y métodos que
+    tenía la superclase. A este procedimiento también se le denomina
+    *extender una clase*.
+
+    De esta forma, las clases hijas heredan las características de sus
+    clases antecesoras; los atributos y métodos declarados en la clase padre
+    son accesibles en la clase hija, como si se hubieran declarado
+    localmente, permitiendo reutilizar código creando nuevas clases a partir
+    de las existentes, previamente construidas y depuradas.
+
+    .. image:: images/poo_heritage.png
+
+
+    En Python, para indicar que una clase hereda de otra se coloca el nombre
+    de la clase de la que se hereda entre paréntesis ``(`` ``)`` después del nombre de
+    la clase.
+
+    Vamos a implementar el ejemplo de la figura en lenguaje Python. En primer lugar definimos
+    la superclase **Mamifero** ...
+
+    .. code-block:: python
+
+        class Mamifero:
+            def comer(self):
+                print("Puedo comer")
+            def andar(self):
+                print('Puedo andar')
+
+    ... y a continuacion, la subclase **Gato** que hereda de la
+    clase **Mamifero**, extendiendo su funcionalidad a través de un nuevo
+    método (**maullar**):
+
+    .. code-block:: python
+
+        class Gato(Mamifero):
+            def maullar(self):
+                print('Miau')
+
+    El paso siguiente es crear un nuevo objeto de la clase **Gato**:
+
+    .. code-block:: python
+
+        >>> objeto_gato = Gato()
+
+    Y finalmente, se accederemos a los métodos de la superclase
+    (**comer** y **andar**) y al método de la subclase (**maullar**) desde
+    la instancia del objeto de la clase **Gato**. La ejecución de este código
+    producirá la impresión en pantalla de los siguientes mensajes:
+
+    .. code-block:: python
+
+        >>> objeto_gato.comer()
+        Puedo comer
+        >>> objeto_gato.andar()
+        Puedo andar
+        >>> objeto_gato.maullar()
+        Miau
+
+    **Herencia múltiple**
+
+    En Python, a diferencia de otros lenguajes como Java o C#, se permite la
+    **herencia múltiple**, es decir, una clase puede heredar de varias
+    clases a la vez. Basta con enumerar las clases de las que se hereda
+    separándolas por comas. Se muestra a continuación un sencillo ejemplo de
+    uso de la herencia múltiple:
+
+    En primer lugar se definen las clases **A** (línea 1) y **B** (línea 5)
+    y a continuación, la clase **C** (línea 9) que hereda de la clase **A** y **B**.
+
+    .. code-block:: python
+        :linenos:
+        :emphasize-lines: 1, 5, 9
+
+        class A():
+            def suma(self, a, b):
+                c = a+b
+                return c
+        class B():
+            def resta(self, a, b):
+                c = a-b
+                return c
+        class C(A, B):
+            pass
+
+    A continuación, se crea un objeto de la clase **C**:
+
+    .. code-block:: python
+
+        >>> c_obj = C()
+
+    Finalmente, se accede al método de suma de la clase **A** y sustracción de la
+    clase **B** desde el objeto de la clase **C**, produciendo los siguientes resultados:
+
+    .. code-block:: python
+
+        >>> print("Suma es ", c_obj.suma(12,4))
+        Suma es  16
+        >>> print("La resta es ",c_obj.resta(45,5))
+        La resta es  40
+
+    **Herencia multinivel**
+
+    También está permitida la **herencia multinivel**. Para ello se define
+    en primer lugar la clase **A** (línea 1). A continuación, se define la clase **B** (línea 5) que
+    hereda de la clase **B** y finalmente, se define la clase **C** (línea 7) que hereda de la
+    clase **B**.
+
+    .. code-block:: python
+        :linenos:
+        :emphasize-lines: 1, 5, 7
+
+        class A():
+            def sum1(self, a, b):
+                c = a+b
+                return c
+        class B(A):
+            pass
+        class C(B):
+            pass
+
+    A continuación, se instancia la clase **C**, creando un objeto de esta clase:
+
+    .. code-block:: python
+
+       >>> c_obj = C()
+
+    Finalmente, se accede al método ``sum1`` definido en la clase **A** (línea 2), desde el
+    objeto de la clase **C**:
+
+    .. code-block:: python
+
+       >>> print("Suma es ", c_obj.sum1(12,4))
+       Suma es  16
+
+.. tabbed:: Polimorfismo
+    :class-content: pl-1 bg-warning
+
+    .. important::  Por **polimorfismo** se entiende aquella cualidad que poseen los objetos
+                    para responder de distinto modo ante el mismo mensaje. Esto significa
+                    que dos clases que tengan un método con el mismo nombre y que respondan
+                    al mismo tipo de mensaje (es decir, que reciban los mismos parámetros),
+                    ejecutarán acciones distintas.
+                    Por otro lado, **sobrecarga** hace referencia a un conjunto de métodos definidos en una misma
+                    clase con el mismo nombre pero con diferente número de parámetros y/o tipos de estos.
+
+    Para ilustrar la implementación de esta característica en Python se
+    crean en primer lugar dos clases ``Perro`` y ``Pajaro``, con un método
+    con el mismo nombre ``avanzar`` que imprimen en pantalla dos acciones
+    distintas:
+
+    .. code-block:: python
+        :linenos:
+        :emphasize-lines: 1, 4
+
+        class Perro():
+            def avanzar(self):
+                print('Corriendo')
+        class Pajaro():
+            def avanzar(self):
+                print('Volando')
+
+    A continuación se crea una nueva función que recibe como parámetro un
+    objeto de ambas clases y realiza la llamada al método ``avanzar``
+    definido anteriormente en ambas clases:
+
+    .. code-block:: python
+        :linenos:
+
+        def mover(animal):
+            animal.avanzar()
+
+    El siguiente paso consistirá en crear dos nuevos objetos de cada una de
+    las clases:
+
+    .. code-block:: python
+
+       >>> objeto_perro = Perro()
+       >>> objeto_pajaro = Pajaro()
+
+    Y, finalmente se realiza la llamada a la función ``mover`` pasando como
+    argumento ``objeto_perro`` y ``objeto_pajaro``, respectivamente. La respuesta al
+    mismo tipo de mensaje ejecuta dos acciones distintas:
+
+    .. code-block:: python
+
+        >>> mover(objeto_perro)
+        Corriendo
+        >>> mover(objeto_pajaro)
+        Volando
+
+Ventajas de la POO
+~~~~~~~~~~~~~~~~~~
+
+El paradigma de la Programación Orientada a Objetos ofrece múltiples beneficios 
+que facilitan el desarrollo de aplicaciones robustas, mantenibles y escalables. 
+Entre las principales ventajas se destacan:
+
+-   **Reutilización de código**: Un diseño adecuado de las clases permite 
+    que puedan ser reutilizadas en distintas partes de un mismo programa 
+    o incluso en diferentes proyectos, reduciendo el esfuerzo de programación.
+
+-   **Reducción de código redundante**, lo que permite un código conciso y
+    sin repeticiones (mecanismo de Herencia). La codificación utilizando clases es
+    fácil de *leer, entender, extender y mantener*.
+
+-   **Mayor fiabilidad**: Al dividir el problema en partes más pequeñas podemos
+    probarlas de manera independiente y aislar más fácilmente
+    los posibles errores que puedan surgir. Gracias a la modularidad,
+    cada componente o módulo de un desarrollo tiene independencia de los demás componentes.
+
+-   **Encapsulamiento**: Los detalles de implementación de una clase quedan 
+    ocultos para el usuario de la misma, exponiendo únicamente una interfaz pública. 
+    Esto protege la integridad de los datos y facilita cambios internos 
+    sin afectar el código externo que la utiliza.
+
+-   **Correspondencia con el mundo real**: La a POO refleja de forma natural 
+    conceptos del mundo real, lo cual facilita la modelización de problemas 
+    complejos mediante objetos que representan entidades y sus comportamientos.
+
+-   **Facilidad para el mantenimiento y la evolución**: Los sistemas basados en objetos 
+    son más fáciles de modificar o ampliar, ya que las nuevas funcionalidades pueden 
+    integrarse extendiendo las clases existentes o creando nuevas clases compatibles.
+
+-   **Mejor organización del código**: Al agrupar atributos y métodos relacionados 
+    dentro de clases, se logra una estructura lógica más clara, lo que 
+    favorece el trabajo en equipo y la colaboración en proyectos de mayor envergadura.
+
+
+Excepciones
+-----------
+
+Las excepciones son errores detectados por Python durante la ejecución
+del programa y no son necesariamente errores fatales. Muchas excepciones
+no son manejadas por los programas; es posible escribir programas que
+manejen excepciones seleccionadas. Si la excepción no se captura el
+flujo de ejecución del programa se interrumpe y se muestra la
+información asociada a la excepción en la consola.
+
+En Python se utiliza una construcción ``try``-``except`` para capturar y tratar
+las excepciones. El bloque ``try`` (intentar) define el fragmento de código
+en el que se sospecha que podría producirse una excepción. El bloque
+``except`` (excepción) permite indicar el tratamiento que se llevará a cabo
+de producirse dicha excepción.
+
+Codifica en un bloque ``else`` solamente lo que quieras ejecutar si no
+hubiesen excepciones ocasionadas por el código del bloque ``try``. Esto es
+útil si tienes algún código que no quieres ejecutar si una excepción es
+encontrada y no quieres analizar si hay excepciones en ese código.
+
+Algunas veces, se buscará que ocurra algo independientemente de lo que
+suceda con la excepción. En aplicaciones reales es útil para liberar
+recursos externo como archivos o conexiones a bases de datos. El bloque
+``finally`` de una cláusula ``try`` se ejecutará siempre, se produzca o no la
+excepción.
+
+A continuación se muestra un ejemplo de uso de ``else`` y ``finally`` en el
+contexto del manejo de excepciones:
+
+.. code-block:: python
+    :linenos:
+
+    def divide(x, y):
+        try:
+            result = x / y
+        except ZeroDivisionError:
+            print("Denominador cero!!!")
+        else:
+            print("El resultado es", result)
+        finally:
+            print("Ejecución claúsula finally")
+
+Si la llamada a la función se realiza con los siguientes argumentos
+``divide(2,1)``, se obtentrá el siguiente resultado:
+
+.. code-block::
+
+    El resultado es 2.0
+    Ejecución claúsula finally
+
+
+.. error::  Si se introduce como denominador el valor cero, ``divide(2,0)``, obtendremos
+            el siguiente resultado:
+
+            .. code-block::
+
+                Denominador cero!!!
+                Ejecución claúsula finally
+
+Finalmente, si introducimos una excepción no controlada como es el caso
+de la división de dos cadenas de texto, ``divide("2","1")`` ,
+obtendremos el siguiente error durante la ejecución:
+
+.. code-block:: python
+
+    Ejecución claúsula finally
+    TypeError: unsupported operand type(s) for /: 'str' and 'str'
+
+En el siguiente ejemplo se ha sustituido el bloque de código de la
+excepción para mostrar el error.
+
+.. code-block:: python
+        :linenos:
+
+        def divide(x, y):
+            try:
+                result = x / y
+            except Exception as detail:
+                print(detail, type(detail))
+
+En este caso la llamada a la función con argumento denominador cero
+genera el siguiente resultado:
+
+.. code-block:: python
+
+    >>>  divide(2,0)
+    division by zero <class 'ZeroDivisionError'>
+
+Para el caso de la llamada a la función con dos cadenas de texto,
+producirá en este caso los siguientes
+resultados y no detendrá la ejecución del programa:
+
+.. code-block:: python
+
+    >>>  divide("2","1")
+    unsupported operand type(s) for /: 'str' and 'str' <class 'TypeError'>
+
+.. tip::    Las excepciones son también objetos regulares de Python que heredan de
+            la clase ``BaseException``. La jerarquía de excepciones puede consultarse
+            en el `siguiente enlace. <https://docs.python.org/3.7/library/exceptions.html>`_:
+            El tipo de error producido, ``TypeError``, hereda de la clase
+            ``BaseException`` ``Exception`` ``StandardError``
+
+También se pueden implementar tipos de error personalizados. En el
+siguiente ejemplo se muestra un bloque de código en el que se intenta
+conectar con una base de datos SQLite, mostrando un error si la conexión
+no se lleva a cabo:
+
+.. code-block:: python
+        :linenos:
+
+        try:
+            connection_object = sqlite.connect(path)
+            str_msg = "It has established a connection with the database " + path
+            self.iface.messageBar().pushMessage(c.CONST_APPLICATION_NAME,
+                                                str_msg,
+                                                level = QgsMessageBar.INFO)
+            return connection_object
+        except sqlite.OperationalError, Msg:
+            str_msg_error_db = str(Msg)
+            str_msg = "Can't connect to Database: " + path + ". Error:" + str_msg_error_db
+            self.iface.messageBar().pushMessage(c.CONST_APPLICATION_NAME,
+                                                str_msg,
+                                                QgsMessageBar.CRITICAL,
+                                                10)
+            return
+
+Módulos y paquetes
+------------------
+
+Módulos
+~~~~~~~
+
+Para facilitar el mantenimiento y la lectura los programas demasiado
+largos pueden dividirse en módulos, agrupando elementos relacionados.
+Los módulos son entidades que permiten una organización y división
+lógica de nuestro código. Los ficheros son su contrapartida física: cada
+archivo Python almacenado en disco equivale a un **módulo**.
+
+Para importar un módulo se utiliza la palabra clave ``import`` seguida del
+nombre del módulo, que consiste en el nombre del archivo menos la
+extensión.
+
+El ``import`` no solo hace que se tenga disponible todo lo definido dentro
+del módulo, sino que también ejecuta el código del módulo.
+
+Es necesario preceder el nombre de los objetos que se importan de un
+módulo con el nombre del módulo al que pertenecen. Sin embargo es
+posible utilizar la construcción ``from``-``import`` para ahorrarnos el tener
+que indicar el nombre del módulo antes del objeto que nos interesa. De
+esta forma se importa el objeto o los objetos que indiquemos al espacio
+de nombres actual.
+
+.. tip::    Aunque se considera una *mala práctica*, también es posible importar todos
+            los nombres del módulo al espacio de nombres actual usando el caracter ``*``:
+
+            .. code-block:: python
+
+                >>> from time import *
+
+A la hora de importar un módulo Python recorre todos los directorios
+indicados en la variable de entorno ``PYTHONPATH`` en busca de un archivo
+con el nombre adecuado. El valor de la variable ``PYTHONPATH`` se puede
+consultar desde Python mediante ``sys.path``
+
+.. code-block:: python
+
+   >>> import sys
+   >>> sys.path
+
+Paquetes
+~~~~~~~~
+
+Mientras los módulos se corresponden a nivel físico con los archivos,
+los paquetes se representan mediante directorios. Para hacer que Python
+trate a un directorio como un paquete es neceario crear un archivo
+``__init__.py`` en dicha carpeta.
+
+Escritura y lectura de ficheros de texto
+----------------------------------------
+
+Formateo de la salida
+~~~~~~~~~~~~~~~~~~~~~
+
+Antes de describir las sentencias para el manejo de ficheros de texto, se aportan
+unas definiciones previas sobre el formateo de salida.
+
+La sentencia ``print``, o más bien las cadenas que imprime, permiten también
+utilizar técnicas avanzadas de formateo, de forma similar al ``sprintf`` de
+C. Veamos varios ejemplos bastantes simples.
+
+Lo que hace la primera línea es introducir los valores a la derecha del
+símbolo ``%`` (la cadena "mundo") en las posiciones indicadas por los
+especificadores de conversión de la cadena a la izquierda del símbolo
+``%``, tras convertirlos al tipo adecuado.
+
+.. code-block:: python
+
+    >>> print("Hola %s" % "mundo")
+    Hola mundo
+
+En la segunda línea, vemos cómo se puede pasar más de un valor a
+sustituir, por medio de una tupla. En este ejemplo sólo tenemos un
+especificador de conversión: ``%s``.
+
+.. code-block:: python
+
+    >>> print("%s %s" % ("Hola", "mundo"))
+    Hola mundo
+
+.. code-block:: python
+
+    >>> print("%d %f %s" % (2, 3.14 , "Hi"))
+
+.. code-block:: python
+
+    >>> print("La distancia total recorrida es de %f metros" % 9.10 )
+
+Los especificadores más sencillos están formados por el símbolo ``%``
+seguido de una letra que indica el tipo con el que formatear el valor:
+
+================= ===========
+**Especificador** **Formato**
+================= ===========
+%s                Cadena
+%d                Entero
+%f                Real
+================= ===========
+
+Se puede introducir un número entre el ``%`` y el carácter que indica el
+tipo al que formatear, indicando el número mínimo de caracteres que
+queremos que ocupe la cadena. Si el tamaño de la cadena resultante es
+menor que este número, se añadirán espacios a la izquierda de la cadena.
+En el caso de que el número sea negativo, ocurrirá exactamente lo mismo,
+sólo que los espacios se añadirán a la derecha de la cadena.
+
+.. code-block:: python
+
+   >>> print("%10s mundo" % "Hola")
+   ______Hola mundo
+
+   >>> print("%-10s mundo" % "Hola")
+   Hola_______mundo
+
+En el caso de los reales es posible indicar la precisión a utilizar
+precediendo la ``f`` de un punto seguido del número de decimales que
+queremos mostrar:
+
+.. code-block:: python
+
+   >>> from math import pi
+   >>> print("%.4f") % pi
+   3.1416
+
+La misma sintaxis se puede utilizar para indicar el número de
+caracteres de la cadena que queremos mostrar
+
+.. code-block:: python
+
+   >>> print("%.4s" % "hola mundo")
+   hola
+
+.. SEE bien explicado en https://www.pythonforbeginners.com/files/reading-and-writing-files-in-python
+
+Manejo de ficheros de texto
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Los ficheros en Python son objetos de tipo ``file`` creados mediante la
+función ``open`` (abrir). Esta función toma como parámetros:
+
++ una cadena con la ruta al fichero a abrir, que puede ser relativa o absoluta;
++ una cadena opcional indicando el modo de acceso (si no se especifica se accede en modo lectura).
++ un entero opcional para especificar un tamaño de *buffer* distinto del utilizado por defecto.
+
+El modo de acceso puede ser cualquier combinación lógica de los siguientes modos:
+
+=====================   ============   =======================================
+**Modo de accceso**     **Operador**    **Descripción**
+=====================   ============   =======================================
+Lectura (``read``)      ``r``           Abre el archivo en modo lectura. El archivo tiene que existir
+
+                                        previamente, en caso contrario se lanzará una excepción de tipo
+
+                                        ``IOError``
+
+Escritura (``write``)   ``w``           Abre el archivo en modo escritura. Si el archivo no existe se
+
+                                        crea. Si existe, sobreescribe el contenido.
+
+Añadir (``append``)     ``a``           Abre el archivo en modo escritura. Se diferencia del modo ``w``
+
+                                        en que en este caso no se sobreescribe el contenido del archivo,
+
+                                        sino que se comienza a escribir al final del archivo.
+=====================   ============   =======================================
+
+.. code-block:: python
+
+    >>> f = open("archivo.txt", "w")
+
+Tras crear el objeto que representa un archivo mediante la método ``open``
+se podrán realizar las operaciones de lectura/escritura pertinentes
+utilizando los métodos del objeto que se verán a continuación.
+
+.. important::  Finalizada su utilización, se deberá cerrar el archivo con el método ``close``.
+
+Escritura de ficheros
+~~~~~~~~~~~~~~~~~~~~~
+
+Para la escritura de archivos se utilizan los métodos ``write`` y
+``writelines``. Mientras el primero funciona escribiendo en el archivo una
+cadena de texto que toma como parámetro, el segundo toma como parámetro
+una lista de cadenas de texto indicando las líneas que queremos escribir
+en el fichero.
+
+.. TODO: mejorar este ejemplo con el ejemplo del py
+
+.. code-block:: python
+
+    obj_file_results = open("C:/TemporalC/archivo.txt", "w")
+    num_pto = 1
+    coor_x = 720487.27
+    coor_y = 4367654.23
+    crs_epsg_auth_id = "CRS-EPSG: 25830"
+    str_msg = "Coordinates point %d: (%.1f, %.1f) %s" %(num_pto, coor_x, coor_y, crs_epsg_auth_id)
+    obj_file_results.write(str_msg)
+    obj_file_results.close()
+
+Lectura de ficheros
+~~~~~~~~~~~~~~~~~~~
+
+Para la lectura de archivos se utilizan los métodos ``read``, ``readline`` y
+``readlines``.
+
+El método ``read`` devuelve una cadena con el contenido del archivo o bien
+el contenido de los primeros ``n`` bytes, si se especifica el tamaño máximo
+a leer.
+
+.. code-block:: python
+
+   >>> completo = f.read()
+   >>> parte = f.read(512)
+
+El método ``readline`` sirve para leer las líneas del fichero una por una.
+Es decir, cada vez que se llama a este método, se devuelve el contenido
+del archivo desde el puntero hasta que se encuentra un carácter de nueva
+línea, incluyendo este carácter.
+
+.. TODO probar este código
+
+.. code-block:: python
+    :linenos:
+
+    while True:
+        linea = f.readline()
+        if not linea:
+            break
+        print(linea)
+
+Por último, ``readlines``, funciona leyendo todas las líneas del archivo y
+devolviendo una lista con las líneas leídas.
+
+Mover el puntero de lectura/escritura
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Hay situaciones en las que nos puede interesar mover el puntero de
+lectura/escritura a una posición determinada del archivo. Por ejemplo si
+queremos empezar a escribir en una posición determinada y no al final o
+al principio del archivo.
+
+Para esto se utiliza el método ``seek`` que toma como parámetro un número
+positivo o negativo a utilizar como desplazamiento. También es posible
+utilizar un segundo parámetro para indicar desde dónde queremos que se
+haga el desplazamiento: ``0`` indicará que el desplazamiento se refiere al
+principio del fichero (comportamiento por defecto), ``1`` se refiere a la
+posición actual, y ``2``, al final del fichero.
+
+Para determinar la posición en la que se encuentra actualmente el
+puntero se utiliza el método ``tell()``, que devuelve un entero indicando la
+distancia en bytes desde el principio del fichero.
+

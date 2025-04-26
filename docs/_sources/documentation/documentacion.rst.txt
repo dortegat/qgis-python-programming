@@ -1,0 +1,191 @@
+.. _cap2_documentacion:
+
+En esta sección se facilitan una serie de recursos para el aprendizaje de QGIS, específicamente
+enfocados a la programación de QGIS con Python. El contenido se estructura en los siguientes
+apartados:
+
+.. image:: images/documentation_scheme.png
+
+Documentación oficial QGIS de referencia
+****************************************
+La `documentación oficial <http://www.qgis.org/en/docs/index.html>`_ de QGIS se facilita en idioma inglés,
+pero algunas partes están traducidas a varios idiomas. Las principales referencias para el **desarrollador**
+son la `API QGIS C++ <https://qgis.org/api/3.40/>`_,
+la `API QGIS Python <https://qgis.org/pyqgis/3.40/>`_ y el libro de recetas para el desarrollador PyQGIS
+(`PyQGIS cookbook <https://docs.qgis.org/3.40/es/docs/pyqgis_developer_cookbook/>`_).
+Estos recursos se complementan con la guía de usuario
+(`QGIS User guide <https://docs.qgis.org/3.40/es/docs/user_manual/>`_) y el manual de aprendizaje
+(`QGIS Training manual <https://docs.qgis.org/3.40/es/docs/training_manual/>`_).
+
+.. note::   De forma genérica, los **manuales de usuario** (*user guide*) son utilizados para
+            describir las características y funcionalidades disponibles en una determinada aplicación informática
+            y su forma de uso. Los manuales de usuario explican todas las pantallas y campos.
+
+            Un **manual de aprendizaje** (*training manual*) se redacta de forma diferente y puede estar acompañado
+            de ejercicios para que el usuario los complete. Describen una parte específica del sistema, paso a paso,
+            pero no explican todas las funcionalidades y características de la herramienta informática.
+            Suelen tener más capturas de pantallas que los manuales de usuario.
+
+*PyQGIS online resources* (Webgrafía)
+**************************************
+En este apartado se aportan un conjunto de recursos disponibles en línea de PyQGIS.
+
+Interactuar con otros usuarios
+==============================
+
+Una de las ventajas de los proyectos de código abierto es que se puede hablar directamente con otros desarrolladores
+y frecuentemente con los desarrolladores principales del proyecto.
+
+Resolución de dudas
+-------------------
+QGIS tiene tres formas oficiales de apoyar el desarrollo y la resolución de problemas.
+En las listas de correo, canales IRC y redes sociales técnicas se puede obtener soporte de otros usuarios:
+
+1.  `Listas de correo <http://qgis.org/en/site/getinvolved/mailinglists.html>`_:
+    Las listas de correos están divididas por temas y grupos determinados. Las consultas sobre el
+    desarrollo del núcleo de QGIS o complementos serán dirigidas a la lista de desarrollodores
+    (`Developer list <http://lists.osgeo.org/mailman/listinfo/qgis-developer>`_) y para las
+    relacionadas con la discusión de aspectos generales de QGIS se utilizará la lista de usuarios
+    (`User list <http://lists.osgeo.org/mailman/listinfo/qgis-user>`_).
+
+2.  *Internet Relay Chat* (IRC): para obtener asistencia de usuarios y desarrolladores en tiempo real
+    se puede acceder al `canal de QGIS <https://web.libera.chat/?channels=#qgis>`_.
+    Esta ayuda es voluntaria y está condicionada a su disponibilidad.
+
+3.  *The Stack Exchange community*: Esta red social técnica tiene un subproyecto GIS
+    (*Geographic Information Systems Stack Exchange*) con 36 etiquetas relacionadas con QGIS y PyQGIS en el siguiente
+    `enlace <https://gis.stackexchange.com/tags>`_.
+
+Reporte de bugs
+---------------
+Una manera importante de respaldar el proyecto QGIS, además de financiarlo, es mediante el reporte problemas
+(solicitudes de nuevas funcionalidades o errores) aportando un caso de uso detallado y los datos que permiten
+a otros replicar el problema, permitiendo acelerar su corrección.
+Se recomienda seguir las siguientes `indicaciones <https://www.qgis.org/es/site/getinvolved/development/bugreporting.html>`_
+antes de reportar un error.
+
+Por otro lado, cada parte del proyecto QGIS tiene un lugar específico donde los problemas
+se pueden informar, gestionar y discutir, dependiendo del área en la que haya encontrado.
+A continuación, se indican los repositorio adecuados para dirigir las consultas:
+
++ Aplicaciones (QGIS Desktop, QGIS Server) -> https://github.com/qgis/QGIS/issues
++ `Sitio web de QGIS <https://qgis.org>`_ ->  https://github.com/qgis/QGIS-Website/issues
++ `Documentación QGIS <https://docs.qgis.org>`_ -> https://github.com/qgis/QGIS-Documentation/issues
+
+Para ello será necesario disponer de una `cuenta de GitHub <https://github.com/join>`_.
+
+Los enlaces para reportar errores de complementos externos de terceros se pueden localizar
+en los repositorios especificados por los autores de los mismos. Los enlaces a dichos repositorios
+son mostrados en el Administrador de Complementos de QGIS, accesible desde el menú
+:menuselection:`Complementos --> Administrar e instalar complementos...`.
+
+Blogs y foros
+=============
+A continuación, se presenta una selección de blogs, canales de noticias y foros **activos** 
+de interés para el desarrollador:
+
+En otros idiomas
+----------------
+
+* `QGIS.org blog <http://blog.qgis.org/>`_: Blog oficial del proyecto QGIS.
+
+* `QGIS Plugins Planet <https://plugins.qgis.org/planet/>`_: Este sitio incluye una lista con múltiples Blogs
+  donde se publican la últimas entradas y publicaciones relacionadas con QGIS.
+
+* `Planet OSGeo <http://planet.osgeo.org/>`_: Planet OSGeo es una ventana al mundo, el trabajo y las vidas de los
+  miembros de OSGeo, *hackers* y colaboradores donde se agregan además Blogs de terceros. Se puede solicitar añadir tu propio
+  Blog este portal.
+
+* `Spatial Galaxy <http://spatialgalaxy.net/>`_: Blog Gary Sherman, `godfather de QGIS <https://www.xyht.com/spatial-itgis/godfather-of-qgis>`_ ,
+  sobre GIS open source, QGIS, PyQGIS, Python, programación, etc. en el ámbito geoespacial.
+
+* `Free and Open Source GIS Ramblings <https://anitagraser.com/>`_: Blog de Anita Graser, que formó parte del
+  `Comité Directivo del Proyecto QGIS <https://www.qgis.org/es/site/getinvolved/governance/governance.html>`_
+  y de la Junta Directiva de OSGeo. Tiene numerosas publicaciones de referencia sobre QGIS ([#]_, [#]_).
+
+* `Blog de OpenGIS <https://www.opengis.ch/blog/>`_: Interesante Blog de los desarrolladores de QGIS para Android
+  y QField para QGIS.
+
+* `Blog Lutra consulting <https://www.lutraconsulting.co.uk/blog/>`_: Blog de Lutra Consulting,
+  empresa que proporciona servicios de consultoría, migración, desarrollo de software, capacitación y
+  soporte comercial para QGIS y otros proyectos SIG de código abierto.
+
+* `Blog Kartoza <https://kartoza.com/blog>`_: Blog de Tim Sutton, miembro honorario del
+  Comité Directivo del Proyecto QGIS. Anterior Linfiniti Geo Blog.
+
+* `Blog de North Road <https://north-road.com/blog/>`_: Fundado por Nyall Dawson, analista espacial y miembro establecido
+  de la comunidad de desarrollo de QGIS.
+
+* `Blog de North River Geographic Systems <https://www.northrivergeographic.com/blog>`_: Empresa de consultoría
+  geoespacial, dedicada principalmente al FOSS4G.
+
+* `Blog Oslandia <https://oslandia.com/en/articles/>`_: Blog de Oslandia, empresa privada creada por expertos en SIG y
+  datos espaciales.
+
+En castellano
+-------------
+
+* `Blog de mappingGIS <https://mappinggis.com/blog/>`_: Completo Blog que contiene numerosas entradas relacionadas
+  con la difusión de las Tecnologías de la Información Geográfica. Permanentemente actualizado.
+* `El Blog de José Guerrero <https://joseguerreroa.wordpress.com/>`_: Especialmente dedicado a GNU/Linux, código
+  Python y Sistemas de Información Geográfica (SIG). En su nube de categorías tiene mucho peso la etiqueta ``PyQGIS``.
+* `Foro de QGIS en castellano <https://giseros.com/>`_: Foro de QGIS en castellano.
+* `Blog de GeoTux <https://geotux.tuxfamily.org/>`_: Soluciones geoinformáticas libres. Geo-noticias,
+  geo-blogs y geo-foros.
+* `El blog de Franz <https://acolita.com/category/sig/qgis/>`_: Con un interesante apartado de preguntas y respuestas.
+  Muy orientado a ArcGIS.
+
+Otros recursos interesantes
+===========================
+
+* `QGIS Python Plugins Repository <https://plugins.qgis.org/plugins/>`_: Repositorio de plugins de QGIS. Recurso
+  recomendado para el estudio del código de otros desarrolladores.
+
+.. tip::    El tipo de licencia de QGIS permite inspeccionar el
+            código fuente de los complementos, constituyéndose como un recurso imprescindible
+            y recomendado para el aprendizaje de estas herramientas:
+            *“La mejor escuela es instalar y leer el código de plugins”*.
+
+* `Asociación QGIS España <http://qgis.es/>`_: Soporte para el grupo de usuarios Españoles de QGIS.
+* `QGIS Visual Changelog <https://www.qgis.org/es/site/forusers/visualchangelogs.html>`_: Registro visual de cambios
+  desde la versión QGIS 2.0.
+* `QGIS tutorials and tips <http://www.qgistutorials.com/en/>`_: Blog de Ujaval Gandhi, fundador también del
+  `Spatial Thoughts <https://spatialthoughts.com/category/qgis/>`_. Ver Python Scripting (PyQGIS).
+* `Visual Style Guide <https://qgis.org/en/site/getinvolved/styleguide.html#original>`_: Guía de estilo visual de QGIS
+  con la imagen de QGIS.
+
+Libros de referencia
+********************
+QGIS facilita en su sitio Web una `lista de libros <https://www.qgis.org/es/site/forusers/books/index.html>`_
+de otros editores, que no administra y se ofrecen sólo como ayuda.
+
+Por su parte, la editorial `Locate Press <https://locatepress.com/books>`_, especializada
+en libros geoespaciales de código abierto, publica varios libros que son referencia en QGIS.
+A nivel usuario se citan [#]_, [#]_ y específicos de programación para QGIS se destacan [#]_, [#]_.
+
+Finalmente, la editorial `Packt Publishing <https://www.packtpub.com>`_,
+especializada en la publicación de recursos de aprendizaje de proyectos de código abierto,
+contiene numerosos libros y video tutoriales sobre QGIS de nivel usuario hasta nivel experto programador.
+En este caso se recomiendan los siguientes: [#]_, [#]_
+
+  .. [#]    **A. Graser**, *Learning QGIS - Third Edition*, 3rd Revised edition edition
+            (Packt Publishing - ebooks Account, Birmingham Mumbai, **2016**)
+
+  .. [#]    **A. Graser, G. N. Peterson, G. Sherman**, *QGIS Map Design: With New and Updated Workflows for QGIS 3.4. Second Edition*
+            (Locate Press, Chugiak, AK, **2018**)
+
+  .. [#]    **K. Menke**, *Discover QGIS 3.x: A Workbook for the Classroom or Independent Study. Second Edition*
+            (Locate Press, Chugiak, Arkansas, **2022**)
+
+  .. [#]    **H. van der Kwast and K. Menke**, *QGIS for Hydrological Applications: Recipes for Catchment Hydrology and Water Management - Second Edition*
+            (Locate Press, Chugiak, AK, **2022**)
+
+  .. [#]    **G. Sherman**, *The PyQGIS Programmer’s Guide: Extending QGIS 3 with Python 3* (Locate Press, **2018**)
+
+  .. [#]    **T. Mitchell**, *Geospatial Power Tools: GDAL Raster & Vector Commands*; (Locate Press, Chugiak, AK, **2014**)
+
+  .. [#]    **S. Islam, S. Miles, G. Menke, G. Smith, L. Pirelli, G. Van Hoesen, and  an O. M. C. Safari**,
+            *Mastering Geospatial Development with QGIS 3.x - Third Edition* (Packt Publishing, **2019**)
+
+  .. [#]    **B. Mearns, A. Mandel, A. Bruy, V. Olaya, and A. Graser**, *QGIS: Becoming a GIS Power User*
+            (Packt Publishing, Birmingham, **2017**).
